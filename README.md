@@ -12,3 +12,6 @@ The list of all the configurations I have.
 
 ## meta
 [https://github.com/NISH1001/paradox-configs](https://github.com/NISH1001/paradox-configs)
+
+## bash
+**bashrc** and **inputrc** for bash stuffs
