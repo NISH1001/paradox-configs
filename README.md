@@ -15,3 +15,6 @@ The list of all the configurations I have.
 
 ## bash
 **bashrc** and **inputrc** for bash stuffs
+
+## mplayer
+mplayer configurations

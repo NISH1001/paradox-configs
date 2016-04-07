@@ -1,0 +1,9 @@
+# Write your default config options here!
+
+[extension.mp4]
+dmuxer=mov
+
+[extension.mkv]
+dmuxer=mov
+
+
