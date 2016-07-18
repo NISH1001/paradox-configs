@@ -155,5 +155,41 @@ alias termup="xrdb ~/.Xresources"
 alias dict="sdcv"
 alias octave="octave-cli"
 
+alias viber="/opt/viber/Viber"
+
 shopt -s autocd
 shopt -s checkwinsize
+
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Nish/Programming/Python/Virtualenv
+source /usr/bin/virtualenvwrapper.sh
+
+export WINPREFIX=$HOME/.config/wine/
+export WINEARCH=win64
+
+# ----------- crazy functions ----------
+#functions for going up a certain number of directories and back
+function up( )
+{
+    LIMIT=$1
+    P=$PWD
+    for ((i=1; i <= LIMIT; i++))
+    do
+        P=$P/..
+    done
+    cd $P
+    export MPWD=$P
+}
+
+function back( )
+{
+    LIMIT=$1
+    P=$MPWD
+    for ((i=1; i <= LIMIT; i++))
+    do
+        P=${P%/..}
+    done
+    cd $P
+    export MPWD=$P
+}
