@@ -1,0 +1,6 @@
+( if
+( contains ( window_class ) "Thunar" )
+( begin
+( spawn_async (str "transset-df -i " (window_xid) " 0.80" ))
+)
+)

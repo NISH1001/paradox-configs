@@ -18,3 +18,6 @@ The list of all the configurations I have.
 
 ## mplayer
 mplayer configurations
+
+## devilspie
+control how windows appear
