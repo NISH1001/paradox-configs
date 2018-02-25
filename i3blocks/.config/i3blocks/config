@@ -1,0 +1,98 @@
+# i3blocks config file
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+separator_block_width=14
+
+
+#[memory]
+#label=MEM
+#command=$HOME/.config/i3blocks/memory
+#separator=false
+#interval=30
+
+#[swap]
+#label=SWAP
+#instance=swap
+#command=/usr/share/i3blocks/memory
+#interval=30
+
+#[disk-home]
+#instance=$HOME
+#command=/usr/share/i3blocks/disk
+#interval=30
+
+[wireless]
+label=
+#instance=wlan0
+instance=wlp1s0
+command=$HOME/.config/i3blocks/network
+color=#00FF00
+interval=1
+
+[ethernet]
+label=
+#instance=eth0
+instance=enp3s0
+command=$HOME/.config/i3blocks/network
+color=#00FF00
+interval=10
+
+#[cpu]
+#label=CPU
+#command=/usr/share/i3blocks/cpu_usage
+#interval=10
+#min_width=CPU: 100.00%
+#
+#separator=false
+
+#[load]
+#command=/usr/share/i3blocks/load_average
+#interval=10
+
+[battery]
+label=
+#label=
+#label=⚡
+command=$HOME/.config/i3blocks/battery.sh
+interval=30
+
+[nepali]
+#label=Nepali
+command=$HOME/.config/i3blocks/nepali.py
+interval=once
+color=#FFFFFF
+
+[time]
+command=date '+%a %Y-%m-%d %H:%M'
+interval=60
+
+#[volume]
+##label=VOL
+#label=
+#instance=Master
+##instance=PCM
+#command=$HOME/.config/i3blocks/volume
+#interval=1
+#signal=10
+
+[volume-pulseaudio]
+command=$HOME/.config/i3blocks/volume-pulseaudio
+interval=1
+signal=1
