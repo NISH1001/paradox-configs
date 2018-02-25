@@ -22,13 +22,10 @@ Creates symlinks for nvim configurations.
 ---
 
 ## i3
-[https://github.com/NISH1001/my-i3](https://github.com/NISH1001/my-i3)
-
-## vim
-[https://github.com/NISH1001/VIM](https://github.com/NISH1001/VIM)
+[https://github.com/NISH1001/paradox-configs/blob/master/my-i3.md](https://github.com/NISH1001/paradox-configs/blob/master/my-i3.md)
 
 ## neo-vim
-[https://github.com/NISH1001/nvim-config](https://github.com/NISH1001/nvim-config)
+[https://github.com/NISH1001/paradox-configs/blob/master/nvim/.config/nvim/README.md](https://github.com/NISH1001/paradox-configs/blob/master/nvim/.config/nvim/README.md)
 
 ## meta
 [https://github.com/NISH1001/paradox-configs](https://github.com/NISH1001/paradox-configs)
@@ -36,8 +33,8 @@ Creates symlinks for nvim configurations.
 ## bash
 **bashrc** and **inputrc** for bash stuff.
 
-## mplayer
-mplayer configurations
+## mpv 
+mpv configurations
 
 ## devilspie
 control how windows appear
