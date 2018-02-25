@@ -1,2 +1,2 @@
 ./nvim/.config/nvim/autoload/plug.vim.old
-./nvim/.config/nvim/plugged/
+./nvim/.config/nvim/plugged/*
