@@ -41,7 +41,7 @@ separator_block_width=14
 [wireless]
 label=
 #instance=wlan0
-instance=wlp1s0
+instance=wlp2s0
 command=$HOME/.config/i3blocks/network
 color=#00FF00
 interval=1
