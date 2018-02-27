@@ -148,9 +148,8 @@ export VISUAL=nvim
 alias dict="sdcv"
 alias octave="octave-cli"
 
-alias viber="/opt/viber/Viber"
-
-alias let_me_sync="sudo pacman -Syu"
+alias sync_me="sudo pacman -Syu"
+alias sync_packages="sudo pacman -Syy"
 
 alias :q="exit"
 alias rip="shutdown now"
