@@ -113,25 +113,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-#Android Studio Path
-export PATH=${PATH}:"/home/paradox/softwares/android-studio/bin/"
-
 #My custom scripts
-export PATH=${PATH}:"/home/paradox/Nish/Programming/bin/"
+export PATH=${PATH}:"~/Nish/Programming/bin/"
 
-
-# Added by mainbatti-indicator
-export PATH=${PATH}:/home/paradox/Nish/Programming/Python/projects/mainbatti-talika
 
 # Scala
 export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
 export PATH=${PATH}:$SCALA_HOME/bin
 
-# apache spark
-export PATH=${PATH}:"/home/paradox/Documents/library/spark-1.2.0-bin-hadoop2.4/bin/"
+export PATH=${PATH}:"/root/.gem/ruby/2.4.0/bin/"
+
+export PATH=${PATH}:"~/.gem/ruby/2.4.0/bin/"
 
 alias programming="cd ~/Nish/Programming"
 
@@ -149,7 +141,8 @@ LS_COLORS=$LS_COLORS:'di=4;37:fi=0;96:*.pdf=1;91:' ; export LS_COLORS
 #alias vim="nvim"
 alias termup="xrdb ~/.Xresources"
 
-#export EDITOR=nvim
+export EDITOR=nvim
+export VISUAL=nvim
 
 #set completion-ignore-case on
 alias dict="sdcv"
@@ -157,16 +150,31 @@ alias octave="octave-cli"
 
 alias viber="/opt/viber/Viber"
 
+alias let_me_sync="sudo pacman -Syu"
+
+alias :q="exit"
+alias rip="shutdown now"
+#alias myip="echo $(dig +short myip.opendns.com @resolver1.opendns.com)"
+
+
 shopt -s autocd
 shopt -s checkwinsize
 
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Nish/Programming/Python/Virtualenv
-source /usr/bin/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Nish/Programming/Python/Virtualenv
+#source /usr/bin/virtualenvwrapper.sh
 
 export WINPREFIX=$HOME/.config/wine/
 export WINEARCH=win64
+
+export FZF_DEFAULT_OPTS='--height 100% '
+
+#export JAVA_TOOL_OPTIONS=-Dfuseprospector.env=local
+#export JAVA_TOOL_OPTIONS=-D--spring.config.location=src/main/resources/application-local.properties
+#export JAVA_TOOL_OPTIONS=-D--spring.config.location=/home/paradox/eclipse-workspaces/fusemachines/fusesalesapp/src/main/resources/application-local.properties
+
+#export JAVA_TOOL_OPTIONS=-Dspring.config.location=classpath:application-local.properties
 
 # ----------- crazy functions ----------
 #functions for going up a certain number of directories and back
@@ -193,3 +201,8 @@ function back( )
     cd $P
     export MPWD=$P
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by Anaconda3 installer
+export PATH="~/anaconda3/bin:$PATH"
