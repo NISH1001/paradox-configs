@@ -205,3 +205,7 @@ function back( )
 
 # added by Anaconda3 installer
 export PATH="~/anaconda3/bin:$PATH"
+
+source ~/.local/share/icons-in-terminal/icons_bash.sh
+
+eval $(thefuck --alias)

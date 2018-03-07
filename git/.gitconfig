@@ -3,4 +3,4 @@
 	email = nishanpantha@gmail.com
 
 [core]
-	editor = vim
+	editor = nvim
