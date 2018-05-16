@@ -203,9 +203,10 @@ function back( )
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# added by Anaconda3 installer
-export PATH="~/anaconda3/bin:$PATH"
-
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 eval $(thefuck --alias)
+# eval $(thefuck --alias --enable-experimental-instant-mode)
+
+# added by Anaconda3 installer
+export PATH="/home/paradox/anaconda3/bin:$PATH"

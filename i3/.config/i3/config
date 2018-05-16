@@ -4,7 +4,7 @@ set $super Mod4
 
 set $workspace1 "1:"
 set $workspace2 "2"
-set $workspace3 "3:viber"
+set $workspace3 "3"
 set $workspace9 "9:"
 set $workspace10 "10:"
 
@@ -214,7 +214,7 @@ bindsym $mod+m exec --no-startup-id ~/Nish/Programming/Python/projects/youtube-p
 
 assign [class="(?i)chromium"] →  $workspace1
 assign [class="(?i)firefox"] →  $workspace1
-assign [class="(?i)viber"] → $workspace3
+#assign [class="(?i)viber"] → $workspace3
 #assign [class="(?i)thunar"] →  $workspace9
 assign [class="(?i)smplayer"] →  $workspace10
 assign [class="(?i)mplayer"] →  $workspace10
