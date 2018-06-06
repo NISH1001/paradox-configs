@@ -61,3 +61,14 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 30
+    github:
+      enabled: true
+      position:
+        top: 2
+        left: 3
+        height: 2
+        width: 2
+      refreshInterval: 300
+      repositories:
+        tag-generator: "NISH1001"
+      username: "NISH1001"

@@ -211,3 +211,5 @@ eval $(thefuck --alias)
 # added by Anaconda3 installer
 export PATH="/home/paradox/anaconda3/bin:$PATH"
 export PATH="/opt/node-v8.11.2-linux-x64/bin:$PATH"
+
+source ~/.secrets
