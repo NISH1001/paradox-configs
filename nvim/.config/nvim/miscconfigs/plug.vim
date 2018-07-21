@@ -14,6 +14,7 @@ call plug#begin("~/.config/nvim/plugged")
 " deoplete
 "Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
 "Plug 'Shougo/deoplete.nvim'
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -62,6 +63,8 @@ Plug 'ryanoasis/vim-devicons'
 " Commenting made easy
 Plug 'tpope/vim-commentary'
 
+Plug 'SirVer/ultisnips'
+
 " custom plugin
 
 Plug '~/.config/nvim/plugged/join-lines'
@@ -104,3 +107,7 @@ endif
 
 " neomake
 autocmd! BufWritePost * Neomake
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
