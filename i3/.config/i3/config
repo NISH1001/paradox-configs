@@ -201,12 +201,15 @@ bindsym Ctrl+Mod4+l exec --no-startup-id /usr/local/bin/lock -p -t "Hello! I am 
 # thunar
 bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
 
-# ScreenEat whole
-bindsym $mod+p exec --no-startup-id ~/Nish/Programming/Python/projects/ScreenEat/screeneat.py
-# ScreenEat Active window
-bindsym $mod+o exec --no-startup-id ~/Nish/Programming/Python/projects/ScreenEat/screeneat.py --active
-# ScreenEat cropped
-bindsym $mod+i exec --no-startup-id ~/Nish/Programming/Python/projects/ScreenEat/screeneat.py --cropped
+## --- ScreenEat Shit ---
+
+set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screeneat.py
+
+bindsym Print exec  --no-startup-id $screeneat
+bindsym Ctrl+Print exec --no-startup-id $screeneat --active
+bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
+
+## --- ScreenEat Shit ---
 
 bindsym $mod+m exec --no-startup-id ~/Nish/Programming/Python/projects/youtube-pauser/pauser.py
 

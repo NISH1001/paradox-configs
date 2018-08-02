@@ -153,6 +153,7 @@ alias sync_packages="sudo pacman -Syy"
 
 alias :q="exit"
 alias rip="shutdown now"
+alias takeanap="sudo systemctl suspend"
 #alias myip="echo $(dig +short myip.opendns.com @resolver1.opendns.com)"
 
 
