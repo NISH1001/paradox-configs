@@ -17,7 +17,7 @@ set $urgent-bg-color        #E53935
 set $wallpaper ~/Nish/stuff/wallpapers/abstract/future.jpg
 set $lockpaper ~/Nish/stuff/wallpapers/anime/tokyo_ghoul/smile.png
 
-# font pango:monospace 8
+#font pango:monospace 8
 font pango:Sans Mono, Ionicons, FontAwesome 9
 
 
@@ -203,15 +203,15 @@ bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
 
 ## --- ScreenEat Shit ---
 
-set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screeneat.py
+#set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screen-eat
 
-bindsym Print exec  --no-startup-id $screeneat
-bindsym Ctrl+Print exec --no-startup-id $screeneat --active
-bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
+#bindsym Print exec  --no-startup-id $screeneat
+#bindsym Ctrl+Print exec --no-startup-id $screeneat --active
+#bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
 
 ## --- ScreenEat Shit ---
 
-bindsym $mod+m exec --no-startup-id ~/Nish/Programming/Python/projects/youtube-pauser/pauser.py
+#bindsym $mod+m exec --no-startup-id ~/Nish/Programming/Python/projects/youtube-pauser/pauser.py
 
 # -------- move application to workspace --------
 
@@ -238,8 +238,8 @@ exec --no-startup-id i3-msg 'exec nm-applet' &
 exec --no-startup-id i3-msg 'exec /usr/bin/dunst' &
 
 # start redshift
-exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk' &
+exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' &
 
-exec_always compton -f
+#exec_always compton -f
 
 exec_always /usr/bin/setxkbmap us,np -option 'grp:lwin_toggle'

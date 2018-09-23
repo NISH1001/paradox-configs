@@ -16,8 +16,10 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+HISTSIZE=
+HISTFILESIZE=
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -206,15 +208,26 @@ function back( )
 
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 # eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # added by Anaconda3 installer
 export PATH="/home/paradox/anaconda3/bin:$PATH"
-export PATH="/opt/node-v8.11.2-linux-x64/bin:$PATH"
 
 source ~/.secrets
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/paradox/google-cloud-sdk/path.bash.inc' ]; then source '/home/paradox/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/paradox/google-cloud-sdk/completion.bash.inc' ]; then source '/home/paradox/google-cloud-sdk/completion.bash.inc'; fi
+
+# added by Anaconda3 installer
+export PATH="/home/paradox/anaconda3/bin:$PATH"
+
+# write history to the file
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
