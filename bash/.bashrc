@@ -156,6 +156,7 @@ alias sync_packages="sudo pacman -Syy"
 alias :q="exit"
 alias rip="shutdown now"
 alias takeanap="sudo systemctl suspend"
+alias vim="nvim"
 #alias myip="echo $(dig +short myip.opendns.com @resolver1.opendns.com)"
 
 
@@ -231,3 +232,5 @@ export PATH="/home/paradox/anaconda3/bin:$PATH"
 
 # write history to the file
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
+/home/paradox/Nish/Programming/Python/projects/grepy/gre.py

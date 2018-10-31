@@ -18,7 +18,8 @@
 INTERFACE="${BLOCK_INSTANCE:-enp3s0}"
 
 state="$(cat /sys/class/net/$INTERFACE/operstate)"
-myssid=$(nmcli -t -f NAME connection show --active)
+#myssid=$(nmcli -t -f NAME connection show --active)
+myssid=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\: -f2)
 
 if [ "$state" != "up" ]; then
 	echo ""
