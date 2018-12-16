@@ -229,8 +229,9 @@ if [ -f '/home/paradox/google-cloud-sdk/completion.bash.inc' ]; then source '/ho
 
 # added by Anaconda3 installer
 export PATH="/home/paradox/anaconda3/bin:$PATH"
+export PATH="/home/paradox/.gem/ruby/2.5.0/bin:$PATH"
 
 # write history to the file
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
-/home/paradox/Nish/Programming/Python/projects/grepy/gre.py
+/home/paradox/Nish/Programming/Python/projects/grepy/gre2.py

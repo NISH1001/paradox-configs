@@ -65,6 +65,10 @@ Plug 'tpope/vim-commentary'
 
 Plug 'SirVer/ultisnips'
 
+" Version Control shit
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+
 " custom plugin
 
 Plug '~/.config/nvim/plugged/join-lines'
