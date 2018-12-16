@@ -33,6 +33,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
