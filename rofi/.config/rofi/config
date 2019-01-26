@@ -6,6 +6,6 @@ rofi.color-urgent: #000000, #ff9a00, #010101, #ff2700, #fdf6e3
 rofi.font: Input Mono 10
 rofi.bw: 0
 rofi.padding: 2
-rofi.terminal: urxvtc
+rofi.terminal: terminator
 rofi.hide-scrollbar: true
 rofi.fuzzy: true
