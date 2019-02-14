@@ -15,7 +15,14 @@ let g:python3_host_prog = '/home/paradox/anaconda3/bin/python'
 let g:python_host_prog = '/usr/bin/python2'
 let g:netrw_liststyle = 3
 let g:ctrlp_by_filename = 1
+
 "let g:ctrlp_regexp = 1
+"
+
+
+set guicursor=
+" Workaround some broken plugins which set guicursor indiscriminately.
+autocmd OptionSet guicursor noautocmd set guicursor=
 
 syntax enable
 
@@ -86,8 +93,8 @@ set spell
 " ------------------------------------------------------------------------
 
 " load skeleton codes
-autocmd bufnewfile *.py 0r ~/Templates/python.py
-autocmd bufnewfile *.cpp 0r ~/Templates/cpp.cpp
-autocmd bufnewfile *.c 0r ~/Templates/c.c
-autocmd bufnewfile *.html 0r ~/Templates/html.html
-autocmd bufnewfile *.sh 0r ~/Templates/bash_script.sh
+"autocmd bufnewfile *.py 0r ~/Templates/python.py
+"autocmd bufnewfile *.cpp 0r ~/Templates/cpp.cpp
+"autocmd bufnewfile *.c 0r ~/Templates/c.c
+"autocmd bufnewfile *.html 0r ~/Templates/html.html
+"autocmd bufnewfile *.sh 0r ~/Templates/bash_script.sh
