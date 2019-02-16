@@ -218,6 +218,7 @@ bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
 
 assign [class="(?i)chromium"] →  $workspace1
 assign [class="(?i)firefox"] →  $workspace1
+assign [class="(?i)opera"] →  $workspace1
 #assign [class="(?i)viber"] → $workspace3
 #assign [class="(?i)thunar"] →  $workspace9
 assign [class="(?i)smplayer"] →  $workspace10
