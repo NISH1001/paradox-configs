@@ -235,3 +235,4 @@ export PATH="/home/paradox/.gem/ruby/2.5.0/bin:$PATH"
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 /home/paradox/Nish/Programming/Python/projects/grepy/gre2.py
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_12_1:$LD_LIBRARY_PATH
