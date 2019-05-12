@@ -70,6 +70,9 @@ Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 
+" autoclose parenthesis
+Plug 'cohama/lexima.vim'
+
 " custom plugin
 
 Plug '~/.config/nvim/plugged/join-lines'
