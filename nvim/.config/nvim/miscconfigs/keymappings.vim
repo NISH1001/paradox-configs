@@ -43,3 +43,7 @@ nnoremap <C-l> <C-w>l
 :noremap g7 70%
 :noremap g8 80%
 :noremap g9 90%
+
+
+" fzf
+ nnoremap <C-s> :BLines<CR>

@@ -14,10 +14,14 @@ let g:pymode_python = 'python3'
 let g:python3_host_prog = '/home/paradox/anaconda3/bin/python'
 let g:python_host_prog = '/usr/bin/python2'
 let g:netrw_liststyle = 3
-let g:ctrlp_by_filename = 1
 
-"let g:ctrlp_regexp = 1
-"
+
+" ctrl-p shit
+" let g:ctrlp_by_filename = 0
+let g:ctrlp_regexp = 1
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_extensions = ['line', 'dir', 'buffertag', 'tag']
+
 
 
 set guicursor=
