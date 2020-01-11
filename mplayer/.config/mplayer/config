@@ -1,5 +1,7 @@
 # Write your default config options here!
 
+lirc=no
+
 [extension.mp4]
 dmuxer=mov
 
