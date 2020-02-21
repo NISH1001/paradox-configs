@@ -59,8 +59,6 @@ Plug 'tpope/vim-eunuch'
 " Display indent lines
 Plug 'Yggdroot/indentLine'
 
-" Icon for filetype
-Plug 'ryanoasis/vim-devicons'
 
 " Commenting made easy
 Plug 'tpope/vim-commentary'
@@ -73,6 +71,12 @@ Plug 'mhinz/vim-signify'
 
 " autoclose parenthesis
 Plug 'cohama/lexima.vim'
+"
+" Icon for filetype
+Plug 'ryanoasis/vim-devicons'
+
+" Black Linter 
+Plug 'psf/black'
 
 " custom plugin
 

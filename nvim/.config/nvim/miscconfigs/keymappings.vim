@@ -47,3 +47,6 @@ nnoremap <C-l> <C-w>l
 
 " fzf
  nnoremap <C-s> :BLines<CR>
+
+ " Black
+nnoremap <F5> :Black<CR>

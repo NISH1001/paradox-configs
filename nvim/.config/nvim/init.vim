@@ -102,3 +102,6 @@ autocmd bufnewfile *.cpp 0r ~/Templates/cpp.cpp
 autocmd bufnewfile *.c 0r ~/Templates/c.c
 autocmd bufnewfile *.html 0r ~/Templates/html.html
 autocmd bufnewfile *.sh 0r ~/Templates/bash_script.sh
+
+" Black
+autocmd BufWritePre *.py execute ':Black'
