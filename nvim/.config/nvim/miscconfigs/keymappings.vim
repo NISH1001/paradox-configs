@@ -50,3 +50,6 @@ nnoremap <C-l> <C-w>l
 
  " Black
 nnoremap <F5> :Black<CR>
+
+" toggle relative numbers
+:noremap <C-b> :set rnu! rnu?<CR>
