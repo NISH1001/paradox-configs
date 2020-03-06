@@ -78,6 +78,9 @@ Plug 'ryanoasis/vim-devicons'
 " Black Linter 
 Plug 'psf/black'
 
+" Column Highlighting for csv
+Plug 'mechatroner/rainbow_csv'
+
 " custom plugin
 
 Plug '~/.config/nvim/plugged/join-lines'

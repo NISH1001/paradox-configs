@@ -204,11 +204,11 @@ bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
 
 ## --- ScreenEat Shit ---
 
-#set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screen-eat
+set $screeneat /usr/local/bin/screen-eat
 
-#bindsym Print exec  --no-startup-id $screeneat
-#bindsym Ctrl+Print exec --no-startup-id $screeneat --active
-#bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
+bindsym Print exec  --no-startup-id $screeneat
+bindsym Ctrl+Print exec --no-startup-id $screeneat --active
+bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
 
 ## --- ScreenEat Shit ---
 
