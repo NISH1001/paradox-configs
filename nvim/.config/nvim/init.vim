@@ -11,7 +11,7 @@ source ~/.config/nvim/miscconfigs/keymappings.vim
 " python3 host program
 let g:pymode_lint_checkers = [ 'pylint' ]
 let g:pymode_python = 'python3'
-let g:python3_host_prog = '~/anaconda3/bin/python'
+let g:python3_host_prog = expand('~/anaconda3/bin/python')
 let g:python_host_prog = '/usr/bin/python2'
 let g:netrw_liststyle = 3
 
