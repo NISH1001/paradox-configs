@@ -7,6 +7,7 @@ filetype plugin indent on
 source ~/.config/nvim/miscconfigs/fix.vim
 source ~/.config/nvim/miscconfigs/plug.vim
 source ~/.config/nvim/miscconfigs/keymappings.vim
+" source ~/.config/nvim/miscconfigs/coc.vim
 
 " python3 host program
 let g:pymode_lint_checkers = [ 'pylint' ]

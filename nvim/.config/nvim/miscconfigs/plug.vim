@@ -81,9 +81,19 @@ Plug 'psf/black'
 " Column Highlighting for csv
 Plug 'mechatroner/rainbow_csv'
 
+Plug 'itchyny/vim-gitbranch'
+
+Plug 'mbbill/undotree'
+
+Plug 'majutsushi/tagbar'
+
+" CoC
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " custom plugin
 
-Plug '~/.config/nvim/plugged/join-lines'
+" Plug '~/.config/nvim/plugged/join-lines'
+Plug 'NISH1001/join-lines'
 
 call plug#end()
 

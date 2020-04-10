@@ -20,7 +20,11 @@
 "let mapleader=" "
 :noremap ek :E<cr>
 
+" toggle nerd tree using e+n
 :noremap en :NERDTreeToggle<cr>
+
+" toggle undo tree using e+u
+:noremap eu :UndotreeToggle<cr>
 
 " map navigation over spllited windows
 "map <C-J> <C-W>j<C-W>_
@@ -46,10 +50,13 @@ nnoremap <C-l> <C-w>l
 
 
 " fzf
- nnoremap <C-s> :BLines<CR>
+nnoremap <C-s> :BLines<CR>
 
  " Black
 nnoremap <F5> :Black<CR>
 
 " toggle relative numbers
 :noremap <C-b> :set rnu! rnu?<CR>
+
+" toggle tagbar
+:noremap et :TagbarToggle<CR>
