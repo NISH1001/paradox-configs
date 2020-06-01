@@ -87,6 +87,8 @@ Plug 'mbbill/undotree'
 
 Plug 'majutsushi/tagbar'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 " CoC
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

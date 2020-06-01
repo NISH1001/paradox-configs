@@ -204,11 +204,13 @@ bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
 
 ## --- ScreenEat Shit ---
 
-set $screeneat /usr/local/bin/screen-eat
+#set $screeneat /usr/local/bin/screen-eat
+set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screen-eat
+set $pyexec /usr/bin/python3
 
-bindsym Print exec  --no-startup-id $screeneat
-bindsym Ctrl+Print exec --no-startup-id $screeneat --active
-bindsym Ctrl+Shift+Print exec --no-startup-id $screeneat --cropped
+bindsym Print exec  --no-startup-id $pyexec $screeneat
+bindsym Ctrl+Print exec --no-startup-id $pyexec $screeneat --active
+bindsym Ctrl+Shift+Print exec --no-startup-id $pyexec $screeneat --cropped
 
 ## --- ScreenEat Shit ---
 
@@ -242,6 +244,6 @@ exec --no-startup-id i3-msg 'exec /usr/bin/dunst' &
 # start redshift
 exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' &
 
-#exec_always compton -f
+exec_always compton -f
 
 exec_always /usr/bin/setxkbmap us,np -option 'grp:lwin_toggle'
