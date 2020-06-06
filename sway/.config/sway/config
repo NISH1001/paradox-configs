@@ -2,11 +2,12 @@
 set $mod Mod1
 set $super Mod4
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace9 "9:"
-set $workspace10 "10"
+set $workspace1 "1:web"
+set $workspace2 "2:web"
+set $workspace3 "3:obsidian"
+set $workspace4 "4:files"
+set $workspace9 "9:code"
+set $workspace10 "10:music"
 
 set $bg-color               #2f343f
 set $inactive-bg-color      #2f343f
@@ -14,7 +15,7 @@ set $text-color             #f3f4f5
 set $inactive-text-color    #676E7D
 set $urgent-bg-color        #E53935
 
-set $wallpaper ~/Nish/stuff/wallpapers/abstract/future.jpg
+set $wallpaper ~/paradox-configs/wallpapers/future.jpg
 set $lockpaper ~/Nish/stuff/wallpapers/anime/yato.png
 
 #font pango:monospace 8
@@ -133,6 +134,14 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 #bindsym $mod+q exec --no-startup-id i3-msg 'exit'
 
+
+input "1739:52560:SYNA3296:00_06CB:CD50_Touchpad" {
+    dwt enabled
+    tap enabled
+    #natural_scroll enabled
+    middle_emulation enabled
+}
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -170,9 +179,12 @@ client.focused               $bg-color               $bg-color               $te
 # finds out, if available)
 bar {
         status_command i3blocks
+        # status_command waybar
+
+        icon_theme ubuntu-mono-dark
         tray_output primary
-	position top
-	font pango:monospace, FontAwesome 9
+        position top
+        font pango:monospace, FontAwesome 9
      	colors {
      	       background #000000
      	       separator #757575
@@ -184,10 +196,14 @@ bar {
      	   }
 }
 
+# Brightness
 # increase brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+bindsym XF86MonBrightnessUp exec light -A 5
+
 # decrease brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+bindsym XF86MonBrightnessDown exec light -U 5
 
 
 # volume control
@@ -200,7 +216,8 @@ bindsym Ctrl+Shift+l exec --no-startup-id /usr/bin/i3lock -i $lockpaper
 #bindsym Ctrl+Mod4+l exec --no-startup-id /usr/local/bin/lock -p -t "Hello! I am Paradox"
 
 # thunar
-bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
+# bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
+bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nautilus
 
 ## --- ScreenEat Shit ---
 
@@ -222,6 +239,7 @@ assign [class="(?i)chromium"] →  $workspace1
 assign [class="(?i)firefox"] →  $workspace1
 assign [class="(?i)opera"] →  $workspace1
 #assign [class="(?i)viber"] → $workspace3
+assign [class="(?i)obsidian"] → $workspace3
 #assign [class="(?i)thunar"] →  $workspace9
 assign [class="(?i)smplayer"] →  $workspace10
 assign [class="(?i)mplayer"] →  $workspace10
@@ -234,6 +252,7 @@ assign [class="(?i)cmus"] →  $workspace10
 
 # set wallpaper
 exec --no-startup-id i3-msg 'exec nitrogen --set-scaled $wallpaper' &
+output * bg  $wallpaper fill
 
 # network manager GUI
 exec --no-startup-id i3-msg 'exec nm-applet' &
