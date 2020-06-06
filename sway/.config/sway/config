@@ -227,7 +227,8 @@ set $pyexec /usr/bin/python3
 
 bindsym Print exec  --no-startup-id $pyexec $screeneat
 bindsym Ctrl+Print exec --no-startup-id $pyexec $screeneat --active
-bindsym Ctrl+Shift+Print exec --no-startup-id $pyexec $screeneat --cropped
+#bindsym Ctrl+Shift+Print exec --no-startup-id $pyexec $screeneat --cropped
+bindsym Ctrl+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 
 ## --- ScreenEat Shit ---
 
