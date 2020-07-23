@@ -200,7 +200,7 @@ bindsym Ctrl+Shift+l exec --no-startup-id /usr/bin/i3lock -i $lockpaper
 #bindsym Ctrl+Mod4+l exec --no-startup-id /usr/local/bin/lock -p -t "Hello! I am Paradox"
 
 # thunar
-bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
+bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nemo
 
 ## --- ScreenEat Shit ---
 
