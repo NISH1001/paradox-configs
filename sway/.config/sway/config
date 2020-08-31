@@ -4,10 +4,10 @@ set $super Mod4
 
 set $workspace1 "1:web"
 set $workspace2 "2:web"
-set $workspace3 "3:obsidian"
+set $workspace3 "3:music"
 set $workspace4 "4:files"
 set $workspace9 "9:code"
-set $workspace10 "10:music"
+set $workspace10 "10:obsidian"
 
 set $bg-color               #2f343f
 set $inactive-bg-color      #2f343f
@@ -180,6 +180,10 @@ client.focused               $bg-color               $bg-color               $te
 bar {
         status_command i3blocks
         # status_command waybar
+        mode hide
+        hidden_state hide
+        modifier $mod+Ctrl
+
 
         icon_theme ubuntu-mono-dark
         tray_output primary
@@ -217,7 +221,8 @@ bindsym Ctrl+Shift+l exec --no-startup-id /usr/bin/i3lock -i $lockpaper
 
 # thunar
 # bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/thunar
-bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nautilus
+#bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nautilus
+bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nemo
 
 ## --- ScreenEat Shit ---
 
@@ -240,7 +245,7 @@ assign [class="(?i)chromium"] →  $workspace1
 assign [class="(?i)firefox"] →  $workspace1
 assign [class="(?i)opera"] →  $workspace1
 #assign [class="(?i)viber"] → $workspace3
-assign [class="(?i)obsidian"] → $workspace3
+assign [class="(?i)obsidian"] → $workspace10
 #assign [class="(?i)thunar"] →  $workspace9
 assign [class="(?i)smplayer"] →  $workspace10
 assign [class="(?i)mplayer"] →  $workspace10
@@ -248,6 +253,10 @@ assign [class="(?i)mpv"] →  $workspace10
 assign [class="(?i)vlc"] →  $workspace10
 assign [class="(?i)clementine"] →  $workspace10
 assign [class="(?i)cmus"] →  $workspace10
+
+font pango:monospace 0
+titlebar_border_thickness 0                                                     
+titlebar_padding 0
 
 # ------- Start applications during startup ----
 

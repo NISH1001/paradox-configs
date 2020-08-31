@@ -20,6 +20,9 @@ set $lockpaper ~/Nish/stuff/wallpapers/anime/yato.png
 #font pango:monospace 8
 font pango:Sans Mono, Ionicons, FontAwesome 9
 
+# hide border
+new_window 1pixel
+
 
 floating_modifier $mod
 
@@ -170,6 +173,9 @@ client.focused               $bg-color               $bg-color               $te
 # finds out, if available)
 bar {
         status_command i3blocks
+        mode hide
+        hidden_state hide
+        modifier $mod+Ctrl
         tray_output primary
 	position top
 	font pango:monospace, FontAwesome 9
