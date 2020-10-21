@@ -37,9 +37,15 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 
+# greenclip
+exec --no-startup-id i3-msg 'exec /usr/bin/greenclip daemon' &
+
 ### use rofi
 # bindsym $mod+d exec rofi -show run
 bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fb "#f3f4f5" -hlbg "#f3f4f5" -hlfg "#9575cd" -font "Roboto 14"
+
+# clipboard manager
+bindsym $mod+o exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 
 bindsym $mod+g exec rofi -show window -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fb "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Roboto 14"
@@ -249,6 +255,9 @@ exec --no-startup-id i3-msg 'exec /usr/bin/dunst' &
 
 # start redshift
 exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' &
+
+# start rescuetime
+exec --no-startup-id i3-msg 'exec /usr/bin/rescuetime' &
 
 exec_always compton -f
 

@@ -76,7 +76,8 @@ Plug 'cohama/lexima.vim'
 Plug 'ryanoasis/vim-devicons'
 
 " Black Linter 
-Plug 'psf/black'
+" Plug 'psf/black'
+Plug 'psf/black', { 'tag': '19.10b0' }
 
 " Column Highlighting for csv
 Plug 'mechatroner/rainbow_csv'
