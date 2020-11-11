@@ -44,12 +44,6 @@ exec --no-startup-id i3-msg 'exec /usr/bin/greenclip daemon' &
 # bindsym $mod+d exec rofi -show run
 bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fb "#f3f4f5" -hlbg "#f3f4f5" -hlfg "#9575cd" -font "Roboto 14"
 
-# clipboard manager
-bindsym $mod+o exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
-
-
-bindsym $mod+g exec rofi -show window -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fb "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Roboto 14"
-
 
 # change focus
 bindsym $mod+h focus left
@@ -86,7 +80,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -262,3 +256,19 @@ exec --no-startup-id i3-msg 'exec /usr/bin/rescuetime' &
 exec_always compton -f
 
 exec_always /usr/bin/setxkbmap us,np -option 'grp:lwin_toggle'
+
+# --- ROFI ---
+
+# clipboard manager
+bindsym $mod+o exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+
+# list open windows
+bindsym $mod+w exec rofi -show window -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fb "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Roboto 14"
+
+# search youtube
+bindsym $mod+y exec rofi -dmenu -p "YouTube" | xargs -I{} xdg-open https://www.youtube.com/results?search_query={}
+
+bindsym $mod+g exec rofi -dmenu -p "Google" | xargs -I{} xdg-open https://www.google.com/search?q={}
+
+# ----------
