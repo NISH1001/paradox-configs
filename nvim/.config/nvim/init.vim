@@ -106,3 +106,4 @@ autocmd bufnewfile *.sh 0r ~/Templates/bash_script.sh
 
 " Black
 autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.json execute ':Black'
