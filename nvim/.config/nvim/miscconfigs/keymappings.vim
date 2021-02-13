@@ -60,3 +60,10 @@ nnoremap <F5> :Black<CR>
 
 " toggle tagbar
 :noremap et :TagbarToggle<CR>
+
+"---
+command Wq wq
+command WQ wq
+command W w
+
+set listchars=tab:>-

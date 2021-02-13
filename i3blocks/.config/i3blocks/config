@@ -21,11 +21,12 @@
 separator_block_width=14
 
 
-#[memory]
-#label=MEM
-#command=$HOME/.config/i3blocks/memory
-#separator=false
-#interval=30
+[memory]
+label=MEM
+command=$HOME/.config/i3blocks/mem.sh
+# command=free -m | awk 'NR==2{printf "U:"; printf "%.1fG", $3/1024; printf " "; printf "A:"; printf "%.1fG", $4/1024 }'
+separator=true
+interval=5
 
 #[swap]
 #label=SWAP

@@ -90,6 +90,8 @@ Plug 'majutsushi/tagbar'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
+Plug 'APZelos/blamer.nvim'
+
 " CoC
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

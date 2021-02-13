@@ -23,7 +23,17 @@ let g:ctrlp_regexp = 1
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line', 'dir', 'buffertag', 'tag']
 
+" GIT BLAMER plugin >>>>
+" for git blame -> show who changed a line
+let g:blamer_enabled = 1
+"
+" disable in insert mode
+let g:blamer_show_in_insert_modes = 0
 
+" disable in visual mode
+let g:blamer_show_in_visual_modes = 0
+
+" <<<<<<
 
 set guicursor=
 " Workaround some broken plugins which set guicursor indiscriminately.

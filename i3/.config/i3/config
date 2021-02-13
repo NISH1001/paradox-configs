@@ -248,7 +248,8 @@ exec --no-startup-id i3-msg 'exec nm-applet' &
 exec --no-startup-id i3-msg 'exec /usr/bin/dunst' &
 
 # start redshift
-exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' &
+# exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' &
+exec --no-startup-id i3-msg 'exec /usr/local/bin/fluxgui' &
 
 # start rescuetime
 exec --no-startup-id i3-msg 'exec /usr/bin/rescuetime' &
