@@ -205,6 +205,19 @@ function back( )
     export MPWD=$P
 }
 
+function pipgrep(  )
+{
+
+    if [ -z "$1" ]
+    then
+        val=$(pip freeze)
+    else
+        val=$(pip freeze | grep -i $1)
+    fi
+
+    echo -e "$val"
+}
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source ~/.local/share/icons-in-terminal/icons_bash.sh
