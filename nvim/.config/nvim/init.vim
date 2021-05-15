@@ -33,6 +33,9 @@ let g:blamer_show_in_insert_modes = 0
 " disable in visual mode
 let g:blamer_show_in_visual_modes = 0
 
+
+let g:isort_command = 'isort'
+
 " <<<<<<
 
 set guicursor=

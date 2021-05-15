@@ -77,7 +77,8 @@ Plug 'ryanoasis/vim-devicons'
 
 " Black Linter 
 " Plug 'psf/black'
-Plug 'psf/black', { 'tag': '19.10b0' }
+" Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black', { 'tag': '20.8b1' }
 
 " Column Highlighting for csv
 Plug 'mechatroner/rainbow_csv'
@@ -91,6 +92,15 @@ Plug 'majutsushi/tagbar'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 Plug 'APZelos/blamer.nvim'
+
+" sort python imports
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+
+" linting protocol
+" Plug 'dense-analysis/ale'
 
 " CoC
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
