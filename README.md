@@ -38,3 +38,9 @@ mpv configurations
 
 ## devilspie
 control how windows appear
+
+## greenclip
+
+Clipboard manager: https://github.com/erebe/greenclip
+
+We can just directly wget the binary and add to path
