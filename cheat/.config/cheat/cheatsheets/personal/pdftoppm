@@ -1,0 +1,2 @@
+# Extract all the pages from a pdf file as images
+pdftoppm file.pdf -r <dpi> out -png
