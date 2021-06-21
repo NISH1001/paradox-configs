@@ -1,0 +1,2 @@
+# combine all the images to a pdf
+img2pdf *.jpg --output out.pdf

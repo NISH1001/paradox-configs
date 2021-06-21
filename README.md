@@ -44,3 +44,20 @@ control how windows appear
 Clipboard manager: https://github.com/erebe/greenclip
 
 We can just directly wget the binary and add to path
+
+## cheat
+
+Manage code snippet as cheatsheets.
+
+#### How to
+
+- Get the binary from https://github.com/cheat/cheat/releases
+- Put the binary into your path or user bin
+- Get the community cheatsheets from https://github.com/cheat/cheatsheets into ~/.config/cheat/community folder
+
+Note: I haven't added the community cheatsheets to git index of the paradox-config because this can easily be cloned.
+
+---
+
+# TODO
+- Automate download/configuration of important tools
