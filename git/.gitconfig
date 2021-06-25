@@ -3,7 +3,7 @@
 	email = nishanpantha@gmail.com
 
 [core]
-	editor = nvim
+    editor = nvim
     pager = delta
 
 [interactive]
