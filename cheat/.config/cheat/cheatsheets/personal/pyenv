@@ -1,0 +1,8 @@
+# view available versions
+pyenv versions
+
+# install python version 3.x.y
+pyenv install 3.8.10
+
+# switch local version to 3.x.y
+pyenv local 3.8.10

@@ -57,6 +57,8 @@ Manage code snippet as cheatsheets.
 
 Note: I haven't added the community cheatsheets to git index of the paradox-config because this can easily be cloned.
 
+`export CHEAT_CONFIG_PATH="~/.config/cheat/conf.yml"`
+
 ---
 
 # TODO
