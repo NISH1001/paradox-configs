@@ -2,12 +2,12 @@
 set $mod Mod1
 set $super Mod4
 
-set $workspace1 "1:web"
-set $workspace2 "2:web"
-set $workspace3 "3:music"
-set $workspace4 "4:files"
-set $workspace9 "9:code"
-set $workspace10 "10:obsidian"
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3:kb"
+set $workspace4 "4:util"
+set $workspace9 "9:"
+set $workspace10 "10"
 
 set $bg-color               #2f343f
 set $inactive-bg-color      #2f343f
@@ -97,7 +97,7 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -130,7 +130,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit sway?' 'i3-msg exit'"
 
 #bindsym $mod+q exec --no-startup-id i3-msg 'exit'
 
@@ -244,8 +244,9 @@ bindsym Ctrl+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 assign [class="(?i)chromium"] →  $workspace1
 assign [class="(?i)firefox"] →  $workspace1
 assign [class="(?i)opera"] →  $workspace1
-#assign [class="(?i)viber"] → $workspace3
-assign [class="(?i)obsidian"] → $workspace10
+assign [class="(?i)spotify"] → $workspace2
+assign [class="(?i)logseq"] → $workspace3
+assign [class="(?i)signal"] → $workspace4
 #assign [class="(?i)thunar"] →  $workspace9
 assign [class="(?i)smplayer"] →  $workspace10
 assign [class="(?i)mplayer"] →  $workspace10
@@ -276,3 +277,18 @@ exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' 
 exec_always compton -f
 
 exec_always /usr/bin/setxkbmap us,np -option 'grp:lwin_toggle'
+
+# --- ROFI ---
+
+# clipboard manager
+bindsym $mod+o exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# list open windows
+#bindsym $mod+w exec rofi -show window -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fb "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Roboto 14"
+
+
+# search youtube
+#bindsym $mod+y exec rofi -dmenu -p "YouTube" | xargs -I{} xdg-open https://www.youtube.com/results?search_query={}
+
+#bindsym $mod+g exec rofi -dmenu -p "Google" | xargs -I{} xdg-open https://www.google.com/search?q={}
+
