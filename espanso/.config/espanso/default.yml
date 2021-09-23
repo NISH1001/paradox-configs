@@ -52,4 +52,4 @@ matches:
     - name: logseqdate
       type: shell
       params:
-        cmd: "$HOME/anaconda3/bin/python /home/docuparadox/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py $ESPANSO_FORM1_NAME"
+        cmd: "$HOME/anaconda3/bin/python $HOME/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py $ESPANSO_FORM1_NAME"
