@@ -6,6 +6,9 @@
 
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
+
+toggle_key: OFF
+
 matches:
   # Simple text replacement
   - trigger: ":espanso"
@@ -28,3 +31,25 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+
+
+  - trigger: ":form"
+    replace: "Hey {{form1.name}}, how are you?"
+    vars:
+      - name: "form1"
+        type: form
+        params:
+          layout: "Hey {{name}}, how are you?"
+
+  - trigger: ":logseqdate"
+    replace: "{{logseqdate}}"
+    vars:
+    - name: form1
+      type: form
+      params:
+        layout: |
+          NLP date {{name}}
+    - name: logseqdate
+      type: shell
+      params:
+        cmd: "$HOME/anaconda3/bin/python /home/docuparadox/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py $ESPANSO_FORM1_NAME"
