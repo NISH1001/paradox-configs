@@ -49,6 +49,13 @@ We can just directly wget the binary and add to path
 
 Manage code snippet as cheatsheets.
 
+## espanso
+
+Text expander.
+
+- Install [espanso](https://github.com/federico-terzi/espanso)
+- Install [espanso-modulo](https://espanso.org/install/linux/#installing-modulo)
+
 #### How to
 
 - Get the binary from https://github.com/cheat/cheat/releases
