@@ -1,0 +1,20 @@
+# name: logseqdate
+# parent: default
+
+filter_title: "Logseq"
+# filter_class: "Logseq"
+
+matches:
+
+  - trigger: ":nlpdate"
+    replace: "{{logseqdate}}"
+    vars:
+    - name: form1
+      type: form
+      params:
+        layout: |
+          NLP date {{name}}
+    - name: logseqdate
+      type: shell
+      params:
+        cmd: "$HOME/anaconda3/bin/python $HOME/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py $ESPANSO_FORM1_NAME"
