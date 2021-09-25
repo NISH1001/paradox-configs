@@ -9,6 +9,9 @@
 
 toggle_key: OFF
 
+enable_passive: false
+passive_key: CTRL
+
 matches:
   # Simple text replacement
   - trigger: ":espanso"
@@ -41,15 +44,14 @@ matches:
         params:
           layout: "Hey {{name}}, how are you?"
 
-  # - trigger: ":logseqdate"
-  #   replace: "{{logseqdate}}"
+  # - trigger: ":nlpdate"
+  #   replace: "{{output}}"
+  #   passive_only: true
   #   vars:
-  #   - name: form1
-  #     type: form
-  #     params:
-  #       layout: |
-  #         NLP date {{name}}
-  #   - name: logseqdate
-  #     type: shell
-  #     params:
-  #       cmd: "$HOME/anaconda3/bin/python $HOME/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py $ESPANSO_FORM1_NAME"
+  #     - name: output
+  #       type: script
+  #       params:
+  #         inject_args: true
+  #         args:
+  #           - /home/docuparadox/anaconda3/bin/python
+  #           - /home/docuparadox/paradox-configs/espanso/.config/espanso/scripts/logseqdate.py
