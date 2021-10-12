@@ -4,9 +4,9 @@ set $super Mod4
 
 set $workspace1 "1"
 set $workspace2 "2"
-set $workspace3 "3:kb"
-set $workspace4 "4:util"
-set $workspace9 "9:"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace9 "9"
 set $workspace10 "10"
 
 set $bg-color               #2f343f
@@ -242,7 +242,7 @@ bindsym Ctrl+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 # -------- move application to workspace --------
 
 assign [class="(?i)chromium"] →  $workspace1
-assign [class="(?i)firefox"] →  $workspace1
+#assign [class="(?i)firefox"] →  $workspace1
 assign [class="(?i)opera"] →  $workspace1
 assign [class="(?i)spotify"] → $workspace2
 assign [class="(?i)logseq"] → $workspace3
@@ -277,6 +277,8 @@ exec --no-startup-id i3-msg 'exec /usr/bin/redshift-gtk -l 27.664400:85.318794' 
 exec_always compton -f
 
 exec_always /usr/bin/setxkbmap us,np -option 'grp:lwin_toggle'
+
+exec --no-startup-id ~/bin/i3-autodisplay -config ~/.config/i3-autodisplay/config-wayland.yml
 
 # --- ROFI ---
 

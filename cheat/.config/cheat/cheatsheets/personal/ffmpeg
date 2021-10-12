@@ -38,3 +38,6 @@ ffmpeg -ss 00:34:24.85 -t 10 -i path/to/file.mp4 -f mp3 pipe:play | ffplay -i pi
 
 # convert stereo audio to mono
 ffmpeg -i stereo.flac -ac 1 mono.flac
+
+# generate audio spectrum
+ffmpeg -i <input file> -filter_complex "[0:a]showwaves=s=1280x720:mode=line:rate=25,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
