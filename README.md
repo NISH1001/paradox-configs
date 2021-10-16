@@ -66,6 +66,12 @@ Note: I haven't added the community cheatsheets to git index of the paradox-conf
 
 `export CHEAT_CONFIG_PATH="~/.config/cheat/conf.yml"`
 
+## PulseEffects
+
+Limiter, compressor, convolver, equalizer and auto volume and many other plugins for PulseAudio/PipeWire applications.
+
+https://github.com/wwmm/easyeffects
+
 ---
 
 # TODO
