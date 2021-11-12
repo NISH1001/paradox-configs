@@ -41,3 +41,10 @@ ffmpeg -i stereo.flac -ac 1 mono.flac
 
 # generate audio spectrum
 ffmpeg -i <input file> -filter_complex "[0:a]showwaves=s=1280x720:mode=line:rate=25,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+# extract audio from multi-track video
+# `a:1` represents the 2nd track from the video (0th index)
+ffmpeg -i video.mkv -map 0:a:1 faudio.mp3
+
+# concat/combine multiple videos in a directory
+ffmpeg -f concat -safe 0 -i <(for f in ./*.mp4; do echo "file '$PWD/$f'"; done) -c copy output.mp4

@@ -44,7 +44,7 @@ Plug 'scrooloose/nerdcommenter'
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+" Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -101,7 +101,7 @@ Plug 'majutsushi/tagbar'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
-Plug 'APZelos/blamer.nvim'
+Plug 'APZelos/blamer.nvim', {'commit': 'fed2139ccc931c5991d5673233004025a61c1fc8'}
 
 " sort python imports
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
