@@ -15,7 +15,8 @@ set $text-color             #f3f4f5
 set $inactive-text-color    #676E7D
 set $urgent-bg-color        #E53935
 
-set $wallpaper ~/Nish/stuff/wallpapers/abstract/future.jpg
+#set $wallpaper ~/Nish/stuff/wallpapers/abstract/future.jpg
+set $wallpaper ~/Nish/stuff/wallpapers/abstract/nihilist/3422337.png
 set $lockpaper ~/Nish/stuff/wallpapers/anime/yato.png
 
 #font pango:monospace 8
