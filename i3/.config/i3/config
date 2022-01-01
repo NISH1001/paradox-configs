@@ -15,9 +15,8 @@ set $text-color             #f3f4f5
 set $inactive-text-color    #676E7D
 set $urgent-bg-color        #E53935
 
-#set $wallpaper ~/Nish/stuff/wallpapers/abstract/future.jpg
-set $wallpaper ~/Nish/stuff/wallpapers/abstract/nihilist/3422337.png
-set $lockpaper ~/Nish/stuff/wallpapers/anime/yato.png
+set $wallpaper ~/Nish/wallpapers/nihilist.png
+set $lockpaper ~/Nish/wallpapers/future.png
 
 #font pango:monospace 8
 font pango:Sans Mono, Ionicons, FontAwesome 9
@@ -40,7 +39,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 
 # greenclip
-exec --no-startup-id i3-msg 'exec /usr/bin/greenclip daemon' &
+exec --no-startup-id i3-msg 'exec ~/bin/greenclip daemon' &
 
 ### use rofi
 # bindsym $mod+d exec rofi -show run
@@ -193,9 +192,15 @@ bar {
 }
 
 # increase brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessUp exec light -A 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(light -G))"
+
 # decrease brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(xbacklight -get))"
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessDown exec light -U 5 && notify-send --expire-time=50 "LCD Backlight $(printf %.0f%% $(light -G))"
 
 
 # volume control
