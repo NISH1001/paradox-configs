@@ -88,7 +88,8 @@ Plug 'ryanoasis/vim-devicons'
 " Black Linter 
 " Plug 'psf/black'
 " Plug 'psf/black', { 'tag': '19.10b0' }
-Plug 'psf/black', { 'tag': '20.8b1' }
+Plug 'psf/black', { 'tag': '21.12b0' }
+"Plug 'psf/black', { 'tag': '20.8b1' }
 
 " Column Highlighting for csv
 Plug 'mechatroner/rainbow_csv'

@@ -45,6 +45,8 @@ exec --no-startup-id i3-msg 'exec ~/bin/greenclip daemon' &
 # bindsym $mod+d exec rofi -show run
 bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fb "#f3f4f5" -hlbg "#f3f4f5" -hlfg "#9575cd" -font "Roboto 14"
 
+bindsym $mod+g exec rofi -show fb -modi "fb:~/paradox-configs/rofi/.config/rofi/file_browser.sh" -lines 10 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fb "#f3f4f5" -hlbg "#f3f4f5" -hlfg "#9575cd" -font "Roboto 14"
+
 
 # change focus
 bindsym $mod+h focus left
@@ -218,7 +220,7 @@ bindsym $mod+Ctrl+f exec --no-startup-id /usr/bin/nemo
 ## --- ScreenEat Shit ---
 
 #set $screeneat /usr/local/bin/screen-eat
-set $screeneat ~/Nish/Programming/Python/projects/ScreenEat/screen-eat
+set $screeneat ~/dev/python/projects/ScreenEat/screen-eat
 set $pyexec /usr/bin/python3
 
 bindsym Print exec  --no-startup-id $pyexec $screeneat
@@ -281,7 +283,8 @@ bindsym $mod+w exec rofi -show window -lines 10 -eh 2 -width 100 -padding 100 -o
 # search youtube
 bindsym $mod+y exec rofi -dmenu -p "YouTube" | xargs -I{} xdg-open https://www.youtube.com/results?search_query={}
 
-bindsym $mod+g exec rofi -dmenu -p "Google" | xargs -I{} xdg-open https://www.google.com/search?q={}
+# search google
+#bindsym $mod+g exec rofi -dmenu -p "Google" | xargs -I{} xdg-open https://www.google.com/search?q={}
 
 #bindsym $mod+u exec rofi -dmenu -p "Directory" | xargs -I {} autojump '{}' | xargs -I {} xdg-open '{}'
 #bindsym $mod+u exec rofi -dmenu -p "Directory" | xargs -I {} ~/junkcode/dump.sh "{}"
