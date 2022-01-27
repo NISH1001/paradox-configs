@@ -16,8 +16,10 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+HISTSIZE=
+HISTFILESIZE=
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -37,7 +39,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,9 +86,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -116,17 +115,69 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export to path
-export PATH=$PATH:/opt/gradle/gradle-3.5/bin
-
-# custom bin
+#My custom scripts
 export PATH=${PATH}:"~/Nish/Programming/bin/"
 
-# spark
-export SPARK_HOME=/opt/spark-2.2.0-bin-hadoop2.7
-export PATH=$SPARK_HOME/bin:$PATH
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+
+# Scala
+export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
+export PATH=${PATH}:$SCALA_HOME/bin
+
+export PATH=${PATH}:"/root/.gem/ruby/2.4.0/bin/"
+
+export PATH=${PATH}:"~/.gem/ruby/2.4.0/bin/"
+
+alias programming="cd ~/Nish/Programming"
+
+#export XDG_CONFIG_HOME="$HOME/.config"
+
+# color profile
+#export PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
+export PS1='[\[\033[33;1m\]\u@\h]\[\033[00m\]:\[\033[01;35m\]\W\[\033[00m\]\$ '
+
+# green color + underline for folders
+# turquoise color + normal for files
+# light red + bold for pdf
+LS_COLORS=$LS_COLORS:'di=4;37:fi=0;96:*.pdf=1;91:' ; export LS_COLORS
+
+#alias vim="nvim"
+alias termup="xrdb ~/.Xresources"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+#set completion-ignore-case on
+alias dict="sdcv"
+alias octave="octave-cli"
+
+alias sync_me="sudo pacman -Syu"
+alias sync_packages="sudo pacman -Syy"
+
+alias :q="exit"
+alias rip="shutdown now"
+alias takeanap="sudo systemctl suspend"
+alias vim="nvim"
+#alias myip="echo $(dig +short myip.opendns.com @resolver1.opendns.com)"
+
+
+shopt -s autocd
+shopt -s checkwinsize
+
+
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Nish/Programming/Python/Virtualenv
+#source /usr/bin/virtualenvwrapper.sh
+
+export WINPREFIX=$HOME/.config/wine/
+export WINEARCH=win64
+
+export FZF_DEFAULT_OPTS='--height 100% '
+
+#export JAVA_TOOL_OPTIONS=-Dfuseprospector.env=local
+#export JAVA_TOOL_OPTIONS=-D--spring.config.location=src/main/resources/application-local.properties
+#export JAVA_TOOL_OPTIONS=-D--spring.config.location=/home/paradox/eclipse-workspaces/fusemachines/fusesalesapp/src/main/resources/application-local.properties
+
+#export JAVA_TOOL_OPTIONS=-Dspring.config.location=classpath:application-local.properties
 
 # ----------- crazy functions ----------
 #functions for going up a certain number of directories and back
@@ -154,12 +205,70 @@ function back( )
     export MPWD=$P
 }
 
+function pipgrep(  )
+{
+
+    if [ -z "$1" ]
+    then
+        val=$(pip freeze)
+    else
+        val=$(pip freeze | grep -i $1)
+    fi
+
+    echo -e "$val"
+}
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# set vi mode
-# set -o vi
+source ~/.local/share/icons-in-terminal/icons_bash.sh
+
+# eval $(thefuck --alias)
+# eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # added by Anaconda3 installer
-export PATH="/home/lt83/anaconda3/bin:$PATH"
-#export PATH="/home/lt83/anaconda3/bin/conda:$PATH"
+#export PATH="/home/paradox/anaconda3/bin:$PATH"
 
+# source ~/.secrets
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# write history to the file
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-logs/logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
+# alias
+alias :q="exit"
+#alias python="python3"
+alias scmd="~/bin/scmd.py"
+alias vactive="source venv/bin/activate"
+alias cat=batcat
+alias jn="jupyter  notebook --no-browse"
+
+# ---
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/nishparadox/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/nishparadox/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nishparadox/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/nishparadox/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+[[ -s /home/nishparadox/.autojump/etc/profile.d/autojump.sh ]] && source /home/nishparadox/.autojump/etc/profile.d/autojump.sh
