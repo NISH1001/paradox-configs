@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -235,14 +237,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # write history to the file
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-logs/logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-logs/logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 # alias
 alias :q="exit"
 #alias python="python3"
 alias scmd="~/bin/scmd.py"
 alias vactive="source venv/bin/activate"
-alias cat=batcat
 alias jn="jupyter  notebook --no-browse"
 
 # ---
@@ -272,3 +273,8 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 [[ -s /home/nishparadox/.autojump/etc/profile.d/autojump.sh ]] && source /home/nishparadox/.autojump/etc/profile.d/autojump.sh
+
+. "$HOME/.cargo/env"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"

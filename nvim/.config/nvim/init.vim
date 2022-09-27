@@ -12,8 +12,10 @@ source ~/.config/nvim/miscconfigs/keymappings.vim
 " python3 host program
 let g:pymode_lint_checkers = [ 'pylint' ]
 let g:pymode_python = 'python3'
-let g:python3_host_prog = expand('~/anaconda3/bin/python')
+"let g:python3_host_prog = expand('~/anaconda3/bin/python')
+let g:python3_host_prog = expand('/usr/bin/python3')
 let g:python_host_prog = '/usr/bin/python2'
+let g:neomake_python_python_exe = 'python3'
 let g:netrw_liststyle = 3
 
 
@@ -35,6 +37,8 @@ let g:blamer_show_in_visual_modes = 0
 
 
 let g:isort_command = 'isort'
+
+let g:black_virtualenv="~/.vim_black"
 
 " <<<<<<
 

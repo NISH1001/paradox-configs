@@ -3,3 +3,4 @@ nvim/.config/nvim/plugged/*
 nvim/.config/nvim/.netrwhist
 bash/.secrets
 cheat/.config/cheat/cheatsheets/community/
+.DS_Store
