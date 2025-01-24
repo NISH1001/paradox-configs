@@ -117,6 +117,13 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 " CoC
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+
+" lsp config
+Plug 'neovim/nvim-lspconfig'
+
+" llama.cpp
+Plug 'ggml-org/llama.vim'
+
 " custom plugin
 
 " Plug '~/.config/nvim/plugged/join-lines'
