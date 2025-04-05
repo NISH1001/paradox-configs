@@ -13,7 +13,7 @@ source ~/.config/nvim/miscconfigs/keymappings.vim
 let g:pymode_lint_checkers = []
 let g:pymode_python = 'python3'
 " let g:python3_host_prog = expand('/usr/bin/python3')
-let g:python3_host_prog = expand('python')
+let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 let g:python_host_prog = '/usr/bin/python2'
 let g:netrw_liststyle = 3
 
