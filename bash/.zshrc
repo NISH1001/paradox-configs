@@ -107,3 +107,10 @@ alias abyss="llama-server \
     -hf ggml-org/Qwen2.5-Coder-1.5B-Q8_0-GGUF \
     --port 8012 -ngl 99 -fa -ub 1024 -b 1024 -dt 0.1 \
     --ctx-size 0 --cache-reuse 256"
+
+alias lah="ls -lah"
+alias duh="du -sh ."
+
+
+
+export PATH="/Users/npantha/bin:$PATH"
