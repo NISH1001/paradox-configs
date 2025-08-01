@@ -124,6 +124,11 @@ Plug 'neovim/nvim-lspconfig'
 " llama.cpp
 Plug 'ggml-org/llama.vim'
 
+
+
+Plug 'NoahTheDuke/vim-just'
+
+
 " custom plugin
 
 " Plug '~/.config/nvim/plugged/join-lines'

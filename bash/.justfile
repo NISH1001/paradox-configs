@@ -1,3 +1,6 @@
+default:
+  just --list
+
 [doc("""
 Create a new git worktree with Python virtual environment setup.
 Examples:

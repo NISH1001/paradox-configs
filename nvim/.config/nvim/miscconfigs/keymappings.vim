@@ -64,7 +64,7 @@ nnoremap <F5> :Black<CR>
 
 "---
 command Wq wq
-command WQ wq
+" command WQ wq
 command W w
 
 set listchars=tab:>-
