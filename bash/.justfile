@@ -105,9 +105,7 @@ worktree-remove branch working_dir=invocation_directory():
     echo "✅ Worktree removed successfully!"
     echo "🗑️  Directory cleaned up: $worktree_path"
 
-[doc("""
-List all existing git worktrees.
-""")]
+[doc("List all existing git worktrees.")]
 worktree-list working_dir=invocation_directory():
     #!/bin/bash
     set -euo pipefail
@@ -123,4 +121,16 @@ worktree-list working_dir=invocation_directory():
         ls -la .worktrees/
     else
         echo "  No .worktrees directory found"
+    fi
+
+[doc("Run pytest. Usage: just test (basic) or just test akd (with coverage for akd package) or just test . (with full coverage)")]
+test cov="" working_dir=invocation_directory():
+    #!/bin/bash
+    set -euo pipefail
+    cd "{{working_dir}}"
+    
+    if [ -z "{{cov}}" ]; then
+        python -m pytest tests/ -v
+    else
+        python -m pytest --cov={{cov}} --cov-report=term-missing tests/ -v
     fi
