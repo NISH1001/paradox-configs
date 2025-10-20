@@ -1,15 +1,12 @@
 -- Source Vimscript configuration
 vim.cmd('source ~/.config/nvim/init.vim.bak')
 
--- Configure ruff using new Neovim 0.11+ API with built-in language server
--- See: :help lspconfig-nvim-0.11
+-- Configure ruff using Neovim 0.11+ native LSP API
+-- See: :help lsp-quickstart
 vim.lsp.config.ruff = {
   cmd = { 'ruff', 'server' },
   filetypes = { 'python' },
   root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git' },
-  settings = {
-    -- Ruff language server settings
-  },
 }
 
 -- Auto-format on save for ruff
@@ -30,11 +27,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Enable ruff LSP for Python files
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'python',
-  callback = function()
-    vim.lsp.enable('ruff')
-  end,
-})
+-- Enable ruff LSP
+vim.lsp.enable('ruff')
 

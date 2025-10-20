@@ -20,8 +20,8 @@
 "let mapleader=" "
 :noremap ek :E<cr>
 
-" toggle nerd tree using e+n
-:noremap en :NERDTreeToggle<cr>
+" toggle nvim-tree using e+n
+nnoremap en :NvimTreeToggle<CR>
 
 " toggle undo tree using e+u
 :noremap eu :UndotreeToggle<cr>

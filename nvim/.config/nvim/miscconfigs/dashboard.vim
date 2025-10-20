@@ -42,7 +42,7 @@ require('dashboard').setup {
         desc_hl = 'String',
         key = 'e',
         key_hl = 'Number',
-        action = 'NERDTreeToggle',
+        action = 'NvimTreeToggle',
       },
       {
         icon = '  ',

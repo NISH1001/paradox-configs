@@ -85,6 +85,8 @@ Plug 'cohama/lexima.vim'
 "
 " Icon for filetype
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 
 " Black Linter 
 " Plug 'psf/black'
@@ -180,3 +182,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Dashboard
 source ~/.config/nvim/miscconfigs/dashboard.vim
+
+" nvim-tree
+source ~/.config/nvim/miscconfigs/nvim-tree.vim
