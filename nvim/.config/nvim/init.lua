@@ -1,14 +1,14 @@
 -- Source Vimscript configuration
 vim.cmd('source ~/.config/nvim/init.vim.bak')
 
--- Configure `ruff-lsp` using new Neovim 0.11+ API
+-- Configure ruff using new Neovim 0.11+ API with built-in language server
 -- See: :help lspconfig-nvim-0.11
 vim.lsp.config.ruff = {
-  cmd = { 'ruff-lsp' },
+  cmd = { 'ruff', 'server' },
   filetypes = { 'python' },
   root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git' },
   settings = {
-    args = {},
+    -- Ruff language server settings
   },
 }
 

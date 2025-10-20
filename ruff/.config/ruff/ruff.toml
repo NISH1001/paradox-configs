@@ -1,0 +1,39 @@
+# Global Ruff configuration
+# This applies to all Python files unless overridden by project-specific config
+
+[lint]
+# Enable recommended rules
+select = ["E", "F", "W", "I"]  # pycodestyle errors, pyflakes, warnings, isort
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix` is provided)
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude common directories
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+
+[format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Use LF line endings
+line-ending = "lf"
+
+# Indent with spaces
+indent-style = "space"
+
+# Line length
+line-length = 88  # PEP 8 default
+
+# Docstring formatting
+docstring-code-format = true
+docstring-code-line-length = 88
