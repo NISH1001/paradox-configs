@@ -61,7 +61,8 @@ Plug 'neomake/neomake'
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 
 " startify
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
+Plug 'nvimdev/dashboard-nvim'
 
 " vim sugar for UNIX shell commands
 Plug 'tpope/vim-eunuch'
@@ -176,3 +177,6 @@ autocmd! BufWritePost * Neomake
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Dashboard
+source ~/.config/nvim/miscconfigs/dashboard.vim
