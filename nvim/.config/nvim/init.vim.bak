@@ -10,10 +10,14 @@ source ~/.config/nvim/miscconfigs/keymappings.vim
 " source ~/.config/nvim/miscconfigs/coc.vim
 
 " python3 host program
-let g:pymode_lint_checkers = []
-let g:pymode_python = 'python3'
-" let g:python3_host_prog = expand('/usr/bin/python3')
-let g:python3_host_prog = expand('~/.pyenv/shims/python3')
+" (pymode vars kept commented for safety in case plugin is re-enabled)
+" let g:pymode_lint_checkers = []
+" let g:pymode_python = 'python3'
+" Dedicated venv for nvim's python3 host — insulated from per-project
+" pyenv/uv .python-version pins. Rebuild with:
+"   ~/.pyenv/versions/3.12.2/bin/python -m venv ~/.venvs/neovim
+"   ~/.venvs/neovim/bin/pip install pynvim jedi 'setuptools<81'
+let g:python3_host_prog = expand('~/.venvs/neovim/bin/python')
 let g:python_host_prog = '/usr/bin/python2'
 let g:netrw_liststyle = 3
 

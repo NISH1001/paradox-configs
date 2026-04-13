@@ -11,23 +11,21 @@ endif
 """ plugin manager vim-plug """
 call plug#begin("~/.config/nvim/plugged")
 
-" deoplete
-"Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" -- Legacy completion (deoplete + jedi + tern) replaced by blink.cmp + LSP --
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
+" Plug 'deoplete-plugins/deoplete-jedi'
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
-" Plug 'zchee/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-jedi'
-"Plug 'Shougo/deoplete.nvim'
-
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Modern completion: blink.cmp (Rust-backed, fast). tag: '*' pulls the
+" latest release, which ships prebuilt binaries so no Rust toolchain needed.
+Plug 'saghen/blink.cmp', { 'tag': '*' }
 
 " latex
 " Plug 'lervag/vimtex'
@@ -56,9 +54,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " neomake
 Plug 'neomake/neomake'
 
-" python mode
-" Plug 'python-mode/python-mode'
-Plug 'python-mode/python-mode', {'branch': 'develop'}
+" -- python-mode replaced by basedpyright LSP + ruff LSP --
+" Plug 'python-mode/python-mode', {'branch': 'develop'}
 
 " startify
 " Plug 'mhinz/vim-startify'
@@ -88,12 +85,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 
-" Black Linter 
-" Plug 'psf/black'
-" Plug 'psf/black', { 'tag': '19.10b0' }
-" Plug 'psf/black', { 'tag': '21.12b0' }
-"Plug 'psf/black', { 'tag': '20.8b1' }
-Plug 'psf/black', { 'tag': '22.1.0' }
+" -- black replaced by ruff format (via ruff LSP formatOnSave) --
+" Plug 'psf/black', { 'tag': '22.1.0' }
 
 " Column Highlighting for csv
 Plug 'mechatroner/rainbow_csv'
@@ -108,8 +101,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 Plug 'APZelos/blamer.nvim', {'commit': 'fed2139ccc931c5991d5673233004025a61c1fc8'}
 
-" sort python imports
-Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+" -- isort.nvim replaced by ruff's import sorting (rule I001) --
+" Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -165,15 +158,10 @@ augroup omnifuncs
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
-" tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-  autocmd FileType python setlocal omnifunc=tern#Complete
-endif
+" -- tern block removed (plugin replaced by LSP) --
 
-" neomake
+" neomake: keep for non-Python filetypes; Python diagnostics come from
+" ruff LSP + basedpyright now, not neomake.
 autocmd! BufWritePost * Neomake
 
 let g:UltiSnipsExpandTrigger="<tab>"
