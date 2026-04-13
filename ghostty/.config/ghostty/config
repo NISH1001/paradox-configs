@@ -14,10 +14,13 @@ theme = catppuccin-mocha
 
 # ─── Readability / brightness ────────────────────────────────────────────────
 # Enforce a minimum contrast ratio — bumps dim/dark text brighter against bg.
-# 1.0 = disabled (theme decides). Try 1.1–1.3 for gentle boost; higher feels harsh.
-minimum-contrast = 1.1
+# 1.0 = disabled. 1.3 = gentle, 1.6 = punchy, 2.0 = stark. Dial to taste.
+minimum-contrast = 1.6
 # Render bold text using the bright ANSI palette — makes bold stand out.
 bold-is-bright = true
+# Override theme's default foreground with a brighter near-white.
+# Comment this out to go back to catppuccin-mocha's softer #cdd6f4.
+foreground = #eaeaea
 
 # ─── Window ──────────────────────────────────────────────────────────────────
 # Opacity 1.0 for max text contrast; drop to 0.95 if you want a hint of translucency.
