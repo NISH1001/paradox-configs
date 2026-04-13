@@ -63,8 +63,7 @@ syntax enable
 
 " ----------------------- Color profiles ------------------------------
 set background=dark
-"colorscheme ingretu
-hi Normal ctermbg=none
+" Colorscheme is set in init.lua (tokyonight-night).
 
 " ----------------------- Enable/Disable Certain Things -----------------
 

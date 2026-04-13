@@ -75,4 +75,91 @@ return {
 
   -- Custom
   { 'NISH1001/join-lines' },
+
+  -- ── Tree-sitter (semantic syntax highlighting + smart text objects) ──────
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'master',       -- stable API; `main` branch is the 2025 rewrite, still settling
+    build = ':TSUpdate',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+      'HiPhish/rainbow-delimiters.nvim',
+    },
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = {
+          'python', 'lua', 'vim', 'vimdoc', 'query',
+          'bash', 'yaml', 'toml', 'json', 'jsonc',
+          'markdown', 'markdown_inline',
+          'javascript', 'typescript', 'tsx', 'html', 'css',
+          'go', 'rust', 'c', 'cpp',
+          'dockerfile', 'gitcommit', 'gitignore', 'diff', 'regex',
+        },
+        auto_install = true,
+        sync_install = false,
+        highlight = {
+          enable = true,
+          -- Keep vim's regex syntax off — tree-sitter replaces it. Leaving
+          -- both on can cause double-highlighting and perf hits.
+          additional_vim_regex_highlighting = false,
+        },
+        indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          -- `gnn` starts; then `grn`/`grc` grow, `grm` shrinks. Chosen to avoid
+          -- <C-Space> (used by keymappings.vim for spell toggle).
+          keymaps = {
+            init_selection    = 'gnn',
+            node_incremental  = 'grn',
+            scope_incremental = 'grc',
+            node_decremental  = 'grm',
+          },
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ['af'] = '@function.outer',  -- around function
+              ['if'] = '@function.inner',  -- inside function
+              ['ac'] = '@class.outer',     -- around class
+              ['ic'] = '@class.inner',     -- inside class
+              ['aa'] = '@parameter.outer', -- around arg
+              ['ia'] = '@parameter.inner', -- inside arg
+              ['al'] = '@loop.outer',
+              ['il'] = '@loop.inner',
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer' },
+            goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer' },
+          },
+        },
+      })
+
+      -- Context: sticky function/class header at top of buffer while scrolling
+      require('treesitter-context').setup({
+        max_lines = 3,
+        trim_scope = 'outer',
+        mode = 'cursor',
+      })
+
+      -- Rainbow brackets — colorscheme-aware (tokyonight supports it)
+      -- Enabled globally by just being loaded; no setup call needed.
+    end,
+  },
+
+  -- ── Colorschemes ─────────────────────────────────────────────────────────
+  -- All five are lazy = false so they're immediately available via
+  -- `:colorscheme <name>`. Once you pick a favorite, set it in init.lua
+  -- (e.g. `vim.cmd.colorscheme('tokyonight-night')`) and optionally mark the
+  -- others `lazy = true` or remove them.
+  { 'folke/tokyonight.nvim', priority = 1000 },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'rebelot/kanagawa.nvim', priority = 1000 },
+  { 'rose-pine/neovim', name = 'rose-pine', priority = 1000 },
+  { 'sainnhe/gruvbox-material', priority = 1000 },
 }

@@ -27,10 +27,14 @@ require('lazy').setup('plugins', {
   -- Match vim-plug's eager-load default; per-plugin lazy-loading is opted
   -- into via `cmd`/`ft`/`event`/`keys` in lua/plugins.lua.
   defaults = { lazy = false },
-  install = { missing = true },
+  install = { colorscheme = { 'tokyonight-night' }, missing = true },
   checker = { enabled = false },
   change_detection = { notify = false },
 })
+
+-- Default colorscheme (change freely; other schemes are installed and
+-- available via `:colorscheme <name><Tab>`).
+vim.cmd.colorscheme('tokyonight-night')
 
 -- Source legacy vimscript configuration (now that plugins are on rtp)
 vim.cmd('source ~/.config/nvim/init.vim.bak')
