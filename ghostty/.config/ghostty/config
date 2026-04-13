@@ -1,0 +1,37 @@
+# Ghostty config
+# Reload in-app with: Cmd+Shift+,
+# Full reference: https://ghostty.org/docs/config/reference
+
+# ─── Font ────────────────────────────────────────────────────────────────────
+# Hack Nerd Font Mono has the icon glyphs nvim-web-devicons / nvim-tree need.
+font-family = Hack Nerd Font Mono
+font-size = 14
+
+# ─── Theme ───────────────────────────────────────────────────────────────────
+# Ghostty ships many built-in themes. List them with: `ghostty +list-themes`
+# Popular picks: catppuccin-mocha, tokyonight, GruvboxDark, Dracula, Nord
+theme = catppuccin-mocha
+
+# ─── Readability / brightness ────────────────────────────────────────────────
+# Enforce a minimum contrast ratio — bumps dim/dark text brighter against bg.
+# 1.0 = disabled (theme decides). Try 1.1–1.3 for gentle boost; higher feels harsh.
+minimum-contrast = 1.1
+# Render bold text using the bright ANSI palette — makes bold stand out.
+bold-is-bright = true
+
+# ─── Window ──────────────────────────────────────────────────────────────────
+# Opacity 1.0 for max text contrast; drop to 0.95 if you want a hint of translucency.
+background-opacity = 1.0
+window-padding-x = 8
+window-padding-y = 8
+window-save-state = always
+macos-titlebar-style = tabs
+macos-option-as-alt = true          # makes Alt-keys work as Meta in terminal apps
+
+# ─── Behavior ────────────────────────────────────────────────────────────────
+copy-on-select = clipboard
+confirm-close-surface = false
+shell-integration = detect           # auto-enables for zsh/bash/fish
+
+# ─── Scrollback ──────────────────────────────────────────────────────────────
+scrollback-limit = 100000
