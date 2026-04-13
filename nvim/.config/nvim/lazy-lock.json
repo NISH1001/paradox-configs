@@ -8,7 +8,7 @@
   "gruvbox-material": { "branch": "master", "commit": "afb275d8e6dc379762d122bd24e1773fc057abf3" },
   "incsearch-fuzzy.vim": { "branch": "master", "commit": "b08fa8fbfd633e2f756fde42bfb5251d655f5403" },
   "incsearch.vim": { "branch": "master", "commit": "c83de6d1ac31d173d7c3ffee0ad61dc643ee4f08" },
-  "indentLine": { "branch": "master", "commit": "b96a75985736da969ac38b72a7716a8c57bdde98" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03" },
   "join-lines": { "branch": "master", "commit": "e43f83c1331cb0cc4f2e13597f8766d6abaf3add" },
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },

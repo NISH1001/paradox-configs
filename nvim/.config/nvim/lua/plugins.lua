@@ -22,10 +22,33 @@ return {
   -- UI
   { 'vim-airline/vim-airline' },
   { 'nvimdev/dashboard-nvim' },
-  { 'Yggdroot/indentLine' },
   { 'ryanoasis/vim-devicons' },
   { 'nvim-tree/nvim-web-devicons' },
   { 'nvim-tree/nvim-tree.lua' },
+
+  -- Indent guides (tree-sitter aware; replaces Yggdroot/indentLine, which
+  -- used conceallevel=2 and visually dimmed/hid parts of Python strings).
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require('ibl').setup({
+        indent = { char = '│' },
+        scope = {
+          enabled = true,        -- highlights the scope your cursor is in
+          show_start = false,    -- no underline at scope start (noisy)
+          show_end = false,
+        },
+        exclude = {
+          filetypes = {
+            'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble',
+            'lazy', 'mason', 'notify', 'toggleterm', 'lazyterm',
+          },
+        },
+      })
+    end,
+  },
 
   -- File explorer (legacy, lazy-loaded on command)
   { 'scrooloose/nerdtree', cmd = 'NERDTreeToggle' },
