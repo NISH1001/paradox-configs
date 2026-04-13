@@ -63,8 +63,10 @@ nnoremap <F5> :Black<CR>
 :noremap et :TagbarToggle<CR>
 
 "---
-command Wq wq
-" command WQ wq
-command W w
+" Use command! (with !) so re-sourcing (or plugins like vim-eunuch which
+" also define :W) doesn't trigger E174.
+command! Wq wq
+" command! WQ wq
+command! W w
 
 set listchars=tab:>-

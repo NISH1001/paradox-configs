@@ -1,169 +1,30 @@
-" Autoinstall vim-plug {{{
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
-" }}}
-
-" -------- Plugin using Plug ----------------------------------
-
-""" plugin manager vim-plug """
-call plug#begin("~/.config/nvim/plugged")
-
-" -- Legacy completion (deoplete + jedi + tern) replaced by blink.cmp + LSP --
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" let g:deoplete#enable_at_startup = 1
-" Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-
-" Modern completion: blink.cmp (Rust-backed, fast). tag: '*' pulls the
-" latest release, which ships prebuilt binaries so no Rust toolchain needed.
-Plug 'saghen/blink.cmp', { 'tag': '*' }
-
-" latex
-" Plug 'lervag/vimtex'
-
-" ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
-
-" airline 
-Plug 'vim-airline/vim-airline'
-
-"nerd comment
-Plug 'scrooloose/nerdcommenter'
-
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-" Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
-
-" nerdtree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" syntastic
-" Plug 'vim-syntastic/syntastic'
-"Plug 'scrooloose/syntastic'
-
-" neomake
-Plug 'neomake/neomake'
-
-" -- python-mode replaced by basedpyright LSP + ruff LSP --
-" Plug 'python-mode/python-mode', {'branch': 'develop'}
-
-" startify
-" Plug 'mhinz/vim-startify'
-Plug 'nvimdev/dashboard-nvim'
-
-" vim sugar for UNIX shell commands
-Plug 'tpope/vim-eunuch'
-
-" Display indent lines
-Plug 'Yggdroot/indentLine'
-
-
-" Commenting made easy
-Plug 'tpope/vim-commentary'
-
-Plug 'SirVer/ultisnips'
-
-" Version Control shit
-Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-signify'
-
-" autoclose parenthesis
-Plug 'cohama/lexima.vim'
+" ============================================================================
+" Plugin post-load configuration
+" ============================================================================
+" NOTE: Plugin installation is handled by lazy.nvim in lua/plugins.lua.
+" This file used to drive vim-plug; it now only holds plugin-specific
+" vimscript configuration that runs after plugins are on the runtimepath.
 "
-" Icon for filetype
-Plug 'ryanoasis/vim-devicons'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
+" Kept filename for back-compat (init.vim.bak still sources it).
+" ============================================================================
 
-" -- black replaced by ruff format (via ruff LSP formatOnSave) --
-" Plug 'psf/black', { 'tag': '22.1.0' }
-
-" Column Highlighting for csv
-Plug 'mechatroner/rainbow_csv'
-
-Plug 'itchyny/vim-gitbranch'
-
-Plug 'mbbill/undotree'
-
-Plug 'majutsushi/tagbar'
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
-Plug 'APZelos/blamer.nvim', {'commit': 'fed2139ccc931c5991d5673233004025a61c1fc8'}
-
-" -- isort.nvim replaced by ruff's import sorting (rule I001) --
-" Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
-
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-
-" linting protocol
-" Plug 'dense-analysis/ale'
-
-" CoC
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-" lsp config
-Plug 'neovim/nvim-lspconfig'
-
-" llama.cpp
-Plug 'ggml-org/llama.vim'
-
-
-
-Plug 'NoahTheDuke/vim-just'
-
-
-" custom plugin
-
-" Plug '~/.config/nvim/plugged/join-lines'
-Plug 'NISH1001/join-lines'
-
-call plug#end()
-
-" ---------------- plugin configurations ------------
-
-" NERDTree configuration
+" NERDTree
 " autocmd VimEnter * NERDTree | wincmd p
 
-
-" deoplete config
-" let g:deoplete#enable_at_startup = 1
-" if !exists('g:deoplete#omni#input_patterns')
-"   let g:deoplete#omni#input_patterns = {}
-" endif
-" autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-" autocmd CompleteDone * pclose " To close preview window of deoplete automagically
-" " let g:deoplete#disable_auto_complete = 1
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" omnifuncs
+" omnifuncs (fallbacks for filetypes without an LSP attached)
 augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
-
-" -- tern block removed (plugin replaced by LSP) --
 
 " neomake: keep for non-Python filetypes; Python diagnostics come from
 " ruff LSP + basedpyright now, not neomake.
 autocmd! BufWritePost * Neomake
 
+" UltiSnips triggers
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
