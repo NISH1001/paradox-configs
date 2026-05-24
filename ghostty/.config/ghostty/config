@@ -10,7 +10,7 @@ font-size = 14
 # ─── Theme ───────────────────────────────────────────────────────────────────
 # Ghostty ships many built-in themes. List them with: `ghostty +list-themes`
 # Popular picks: catppuccin-mocha, tokyonight, GruvboxDark, Dracula, Nord
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 # ─── Readability / brightness ────────────────────────────────────────────────
 # Enforce a minimum contrast ratio — bumps dim/dark text brighter against bg.
@@ -22,6 +22,14 @@ bold-is-bright = true
 # Comment this out to go back to catppuccin-mocha's softer #cdd6f4.
 foreground = #eaeaea
 
+# ─── Fix dim ANSI colors for TUIs (log timestamps, "secondary text") ─────────
+# Catppuccin-mocha's default `palette 8` (#585b70, "bright black"/dim grey)
+# is what Python logging, Claude Code's secondary text, fzf hints, etc. use
+# for de-emphasized content. Its contrast against the #1e1e2e bg is ~2.2 —
+# below WCAG's 4.5 minimum — so log timestamps look washed out. Brighten it
+# while keeping the blue-grey hue so it still reads as "dim, not primary".
+palette = 8=#7f849c
+
 # ─── Window ──────────────────────────────────────────────────────────────────
 # Opacity 1.0 for max text contrast; drop to 0.95 if you want a hint of translucency.
 background-opacity = 1.0
@@ -29,12 +37,14 @@ window-padding-x = 8
 window-padding-y = 8
 window-save-state = always
 macos-titlebar-style = tabs
-macos-option-as-alt = true          # makes Alt-keys work as Meta in terminal apps
+# makes Alt-keys work as Meta in terminal apps
+macos-option-as-alt = true
 
 # ─── Behavior ────────────────────────────────────────────────────────────────
 copy-on-select = clipboard
 confirm-close-surface = false
-shell-integration = detect           # auto-enables for zsh/bash/fish
+# auto-enables for zsh/bash/fish
+shell-integration = detect
 
 # ─── Scrollback ──────────────────────────────────────────────────────────────
 scrollback-limit = 100000
