@@ -33,6 +33,34 @@ Creates symlinks for nvim configurations.
 ## bash
 **bashrc** and **inputrc** for bash stuff.
 
+## claude
+
+Claude Code user settings (`~/.claude/settings.json`) and the custom statusline script.
+
+`stow claude` symlinks only those two files into `~/.claude/` — the rest of that directory
+(history, projects, sessions, caches) is machine-local runtime state and stays out of git.
+
+The statusline path in `settings.json` is written as `~/.claude/statusline-command.sh`
+so it resolves on both macOS and Linux.
+
+### Setting up on a new machine
+
+```bash
+mkdir -p ~/.claude
+stow --no-folding -t ~ claude
+```
+
+The `mkdir` is **not optional**. If `~/.claude` doesn't exist yet, stow symlinks the whole
+directory (`~/.claude -> paradox-configs/claude/.claude`) and Claude Code then writes its
+history, sessions and caches straight into this repo. `--no-folding` guards the same case
+on later re-stows.
+
+If Claude Code already ran there, `~/.claude/settings.json` exists as a real file and stow
+will refuse with a conflict — `mv ~/.claude/settings.json ~/.claude/settings.json.bak` first.
+
+Claude Code rewrites `settings.json` itself when plugins are toggled or `/config` changes a
+value. If that ever replaces the symlink with a regular file, re-link with `stow -R -t ~ claude`.
+
 ## mpv 
 mpv configurations
 
