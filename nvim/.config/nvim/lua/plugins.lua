@@ -86,11 +86,68 @@ return {
   { 'mechatroner/rainbow_csv' },
   { 'NoahTheDuke/vim-just' },
 
-  -- Markdown preview — uses the plugin's own install routine
+  -- ── Markdown stack ──────────────────────────────────────────────────────
+  -- Browser preview (full HTML/mermaid/KaTeX fidelity) — fallback via <leader>mp
   {
     'iamcco/markdown-preview.nvim',
     build = function() vim.fn['mkdp#util#install']() end,
     ft = { 'markdown' },
+    keys = {
+      { '<leader>mp', '<cmd>MarkdownPreviewToggle<CR>', desc = 'Markdown: browser preview toggle' },
+    },
+  },
+
+  -- In-buffer styling (headings, tables, checkboxes, code blocks, callouts)
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ft = { 'markdown' },
+    opts = {
+      completions = { lsp = { enabled = true } },
+    },
+    keys = {
+      { '<leader>mr', '<cmd>RenderMarkdown toggle<CR>', desc = 'Markdown: in-buffer rendering toggle' },
+    },
+  },
+
+  -- Inline image rendering via Kitty graphics protocol (Ghostty supports it).
+  -- magick_cli processor avoids the flaky luarocks/magick_rock setup on macOS.
+  {
+    '3rd/image.nvim',
+    build = false,
+    ft = { 'markdown' },
+    opts = {
+      backend = 'kitty',
+      processor = 'magick_cli',
+      integrations = {
+        markdown = {
+          enabled = true,
+          clear_in_insert_mode = false,
+          only_render_image_at_cursor = false,
+        },
+      },
+      max_width = 100,
+      max_height = 30,
+    },
+  },
+
+  -- Mermaid / LaTeX / PlantUML / d2 fenced blocks → PNG → inline via image.nvim
+  {
+    '3rd/diagram.nvim',
+    dependencies = { '3rd/image.nvim' },
+    ft = { 'markdown' },
+    opts = function()
+      return {
+        integrations = {
+          require('diagram.integrations.markdown'),
+        },
+        renderer_options = {
+          mermaid  = { theme = 'dark', background = 'transparent', scale = 2 },
+          plantuml = { charset = 'utf-8' },
+          d2       = { theme_id = 200 },
+        },
+      }
+    end,
   },
 
   -- LLM helper
