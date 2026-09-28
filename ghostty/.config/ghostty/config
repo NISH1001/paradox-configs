@@ -45,6 +45,9 @@ copy-on-select = clipboard
 confirm-close-surface = false
 # auto-enables for zsh/bash/fish
 shell-integration = detect
+# SSH: install xterm-ghostty terminfo on remote hosts (fixes "'xterm-ghostty':
+# unknown terminal type"); fall back to TERM=xterm-256color if install fails.
+shell-integration-features = ssh-terminfo,ssh-env
 
 # ─── Scrollback ──────────────────────────────────────────────────────────────
 scrollback-limit = 100000
