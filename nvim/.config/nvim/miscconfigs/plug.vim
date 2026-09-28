@@ -5,7 +5,7 @@
 " This file used to drive vim-plug; it now only holds plugin-specific
 " vimscript configuration that runs after plugins are on the runtimepath.
 "
-" Kept filename for back-compat (init.vim.bak still sources it).
+" Kept filename for back-compat (legacy.vim still sources it).
 " ============================================================================
 
 " NERDTree

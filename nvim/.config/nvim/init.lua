@@ -37,7 +37,27 @@ require('lazy').setup('plugins', {
 vim.cmd.colorscheme('tokyonight-night')
 
 -- Source legacy vimscript configuration (now that plugins are on rtp)
-vim.cmd('source ~/.config/nvim/init.vim.bak')
+vim.cmd('source ~/.config/nvim/legacy.vim')
+
+-- ============================================================================
+-- Clipboard over SSH: OSC 52 (yank on remote -> local Mac clipboard)
+-- ============================================================================
+-- legacy.vim sets clipboard=unnamedplus; locally that uses pbcopy. Over SSH
+-- there's no system clipboard, so copy via OSC 52 escape sequences (Ghostty
+-- supports them). Paste reads nvim's own registers instead of querying the
+-- terminal, which would trigger Ghostty's clipboard-read prompt on every `p`.
+-- To paste from the Mac clipboard on the remote, use Cmd+V.
+if os.getenv('SSH_TTY') then
+  local osc52 = require('vim.ui.clipboard.osc52')
+  local function paste()
+    return { vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('') }
+  end
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = { ['+'] = osc52.copy('+'), ['*'] = osc52.copy('*') },
+    paste = { ['+'] = paste, ['*'] = paste },
+  }
+end
 
 -- ============================================================================
 -- Completion: blink.cmp (Rust-backed, replaces deoplete)

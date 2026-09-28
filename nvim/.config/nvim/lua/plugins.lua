@@ -4,7 +4,7 @@
 -- Migration notes:
 --  - 1:1 port of miscconfigs/plug.vim active plugins
 --  - `lazy = false` by default: matches vim-plug's eager-load behavior so the
---    vimscript configuration (sourced from init.vim.bak) still sees plugin
+--    vimscript configuration (sourced from legacy.vim) still sees plugin
 --    commands/functions at startup. Individual plugins opt into lazy-loading
 --    via `cmd`, `ft`, `event`, or `keys`.
 --  - vim-plug `do:` hooks map to lazy.nvim `build`.
