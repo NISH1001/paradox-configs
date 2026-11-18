@@ -2,6 +2,21 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "fable",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/npantha/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -11,11 +26,9 @@
     "context7@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "worldview-assistant@akd-agents": false,
-    "pds-assistant@akd-agents": false,
     "superpowers@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": false,
+    "clangd-lsp@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "pydantic-skills": {
@@ -35,19 +48,6 @@
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
-    },
-    "akd-agents": {
-      "source": {
-        "source": "github",
-        "repo": "NASA-IMPACT/akd-plugins-claude",
-        "ref": "features/pds-assistant"
-      }
-    },
-    "akd-scoping": {
-      "source": {
-        "source": "github",
-        "repo": "NASA-IMPACT/akd-scoping-agent"
-      }
     }
   },
   "effortLevel": "xhigh",
@@ -56,7 +56,36 @@
     "enabled": true,
     "mode": "hold"
   },
+  "switchModelsOnFlag": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public (this repo has no remotes configured, so visibility cannot be determined from a host \u2014 treat as private working copy until a remote is added)",
+      "**Internal sharing / snippet hosting**: None configured \u2014 treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: unknown \u2014 origin/HEAD unset, no remotes configured in this repo",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured \u2014 assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: The trusted repo (/Users/npantha/dev/impact/experiments/jev-like) \u2014 no remotes configured, no additional orgs configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar (a `.env` file was found in this repo via filename scan \u2014 treat as a sensitive data location)",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured \u2014 fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development",
+      "**Trusted repo**: /Users/npantha/dev/impact/experiments/jev-like (no remotes configured)",
+      "**Org-specific CLIs**: None configured"
+    ]
+  },
   "voiceEnabled": true
 }
