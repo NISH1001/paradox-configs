@@ -7,6 +7,8 @@ alias jl="jupyter  lab --no-browse"
 alias puget1="npantha@puget1.nsstc.uah.edu"
 alias dsig="npantha@dsig1.nsstc.uah.edu"
 
+alias akd="cd ~/dev/impact/projects/accelerated-discovery"
+
 autoload -Uz compinit && compinit
 
 # ignore casing 
@@ -108,9 +110,28 @@ alias abyss="llama-server \
     --port 8012 -ngl 99 -fa -ub 1024 -b 1024 -dt 0.1 \
     --ctx-size 0 --cache-reuse 256"
 
-alias lah="ls -lah"
+alias ls="eza"
+alias lah="eza --long"
 alias duh="du -sh ."
+alias l='eza -lh'                                                       # long format
+alias ll='eza -lah'                                                     # long format with hidden files
+alias la='eza -a'                                                       # all files
+alias lt='eza --tree'                                                   # tree view
+alias lg='eza -lah --git'                                              # long format with git status
+alias envrc="source .envrc"
 
 
 
 export PATH="/Users/npantha/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/npantha/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Hint to tools that respect $TERMINAL (some x-terminal-emulator wrappers,
+# TUI apps, IDEs) that Ghostty is the preferred terminal on this machine.
+# macOS has no real system-wide default-terminal setting; this is best-effort.
+export TERMINAL=ghostty
+
+# opencode
+export PATH=/Users/npantha/.opencode/bin:$PATH
