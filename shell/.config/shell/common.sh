@@ -33,8 +33,10 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 [ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
+    # `init -` already sets up PATH, so a separate `init --path` is redundant.
+    # --no-rehash skips rebuilding every shim on each shell start (~175 ms);
+    # run `pyenv rehash` by hand if a newly installed command is not found.
+    eval "$(pyenv init - --no-rehash)"
 fi
 
 # rbenv
