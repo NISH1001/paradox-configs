@@ -1,0 +1,15 @@
+onboarding = false
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+k"
+switch_workspace = "prefix+shift+1..9"
