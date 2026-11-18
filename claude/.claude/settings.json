@@ -10,7 +10,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '/Users/npantha/.claude/hooks/herdr-agent-state.sh' session",
+            "command": "bash ~/.claude/hooks/herdr-agent-state.sh session",
             "timeout": 10
           }
         ]
@@ -71,7 +71,7 @@
       "**CI/CD deploy targets**: None configured",
       "**Network posture**: None configured",
       "**Host containment**: None configured \u2014 assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
-      "**Source control**: The trusted repo (/Users/npantha/dev/impact/experiments/jev-like) \u2014 no remotes configured, no additional orgs configured",
+      "**Source control**: The trusted repo (~/dev/impact/experiments/jev-like) \u2014 no remotes configured, no additional orgs configured",
       "**Trusted internal domains**: None configured",
       "**Trusted cloud buckets**: None configured",
       "**Key internal services**: None configured",
@@ -83,7 +83,7 @@
       "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
       "### User-specific",
       "**Primary use of Claude Code**: software development",
-      "**Trusted repo**: /Users/npantha/dev/impact/experiments/jev-like (no remotes configured)",
+      "**Trusted repo**: ~/dev/impact/experiments/jev-like (no remotes configured)",
       "**Org-specific CLIs**: None configured"
     ]
   },
