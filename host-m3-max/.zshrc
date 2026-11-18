@@ -2,22 +2,7 @@
 # Shared config lives in ~/.config/shell (stow package: shell). Anything that
 # should apply on every machine belongs in common.sh, not here.
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Shared + OS config. Kept after conda so pyenv shims stay ahead of conda on PATH.
+# Shared + OS config.
 source ~/.config/shell/common.sh
 source ~/.config/shell/zsh.zsh
 [ -f ~/.config/shell/os-$(uname -s).sh ] && source ~/.config/shell/os-$(uname -s).sh
