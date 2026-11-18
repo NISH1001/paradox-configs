@@ -31,7 +31,33 @@ Creates symlinks for nvim configurations.
 [https://github.com/NISH1001/paradox-configs](https://github.com/NISH1001/paradox-configs)
 
 ## bash
-**bashrc** and **inputrc** for bash stuff.
+**inputrc** and the legacy Linux bashrc. The live `~/.bashrc` comes from the `host-*` packages below.
+
+## just
+Global **justfile** (`~/.justfile`), run with `just -g <recipe>`.
+
+## shell (bash + zsh)
+Split into one shared package and one small package per machine:
+
+- `shell/` — `~/.config/shell/`:
+  - `common.sh` — everything shared by both shells (aliases, PATH, functions). Must stay
+    shell-neutral (zsh and macOS bash 3.2).
+  - `zsh.zsh` / `bash.bash` — shell-specific bits (completion, history, prompt).
+  - `os-Darwin.sh` / `os-Linux.sh` — OS-specific bits.
+- `host-<machine>/` — that machine's `~/.zshrc` and `~/.bashrc`. Each sources the shared
+  files and then holds machine-specific aliases and paths. Installers that append to
+  `~/.zshrc` / `~/.bashrc` land here, so one machine's clutter never reaches the others.
+
+```bash
+stow shell host-m3-max
+```
+
+Neither shell reads `~/.config/shell` on its own; it is just where the shared files live.
+For a new machine, copy `host-m3-max/` to `host-<machine>/`, keep the `source` lines, and
+drop the machine-specific section.
+
+`bash/.bashrc-linux-legacy` is the old single-file Linux bashrc, kept as raw material for
+a future Linux host package.
 
 ## claude
 

@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -91,10 +93,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -115,19 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#My custom scripts
-export PATH=${PATH}:"~/Nish/Programming/bin/"
-
-
-# Scala
-export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
-export PATH=${PATH}:$SCALA_HOME/bin
-
-export PATH=${PATH}:"/root/.gem/ruby/2.4.0/bin/"
-
-export PATH=${PATH}:"~/.gem/ruby/2.4.0/bin/"
-
-alias programming="cd ~/Nish/Programming"
 
 #export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -141,21 +126,13 @@ export PS1='[\[\033[33;1m\]\u@\h]\[\033[00m\]:\[\033[01;35m\]\W\[\033[00m\]\$ '
 LS_COLORS=$LS_COLORS:'di=4;37:fi=0;96:*.pdf=1;91:' ; export LS_COLORS
 
 #alias vim="nvim"
-alias termup="xrdb ~/.Xresources"
 
 export EDITOR=nvim
 export VISUAL=nvim
 
 #set completion-ignore-case on
-alias dict="sdcv"
-alias octave="octave-cli"
-
-alias sync_me="sudo pacman -Syu"
-alias sync_packages="sudo pacman -Syy"
 
 alias :q="exit"
-alias rip="shutdown now"
-alias takeanap="sudo systemctl suspend"
 alias vim="nvim"
 #alias myip="echo $(dig +short myip.opendns.com @resolver1.opendns.com)"
 
@@ -235,15 +212,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # write history to the file
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-logs/logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-logs/logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 # alias
 alias :q="exit"
 #alias python="python3"
-alias scmd="~/bin/scmd.py"
-alias vactive="source venv/bin/activate"
-alias cat=batcat
+# alias vactive="source venv/bin/activate"
+alias vactive='if [ -d "venv" ]; then source venv/bin/activate; elif [ -d ".venv" ]; then source .venv/bin/activate; else echo "No virtual environment found"; fi'
 alias jn="jupyter  notebook --no-browse"
+alias jl="jupyter  lab --no-browse"
+
 
 # ---
 
@@ -272,3 +250,42 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 [[ -s /home/nishparadox/.autojump/etc/profile.d/autojump.sh ]] && source /home/nishparadox/.autojump/etc/profile.d/autojump.sh
+
+. "$HOME/.cargo/env"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+_jina() {
+  COMPREPLY=()
+  local word="${COMP_WORDS[COMP_CWORD]}"
+
+  if [ "$COMP_CWORD" -eq 1 ]; then
+    COMPREPLY=( $(compgen -W "$(jina commands)" -- "$word") )
+  else
+    local words=("${COMP_WORDS[@]}")
+    unset words[0]
+    unset words[$COMP_CWORD]
+    local completions=$(jina completions "${words[@]}")
+    COMPREPLY=( $(compgen -W "$completions" -- "$word") )
+  fi
+}
+
+complete -F _jina jina
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# default workspace for Executors
+
+# JINA_CLI_END
+#
+# ---
+alias abyss="llama-server \
+    -hf ggml-org/Qwen2.5-Coder-1.5B-Q8_0-GGUF \
+    --port 8012 -ngl 99 -fa -ub 1024 -b 1024 -dt 0.1 \
+    --ctx-size 0 --cache-reuse 256"
