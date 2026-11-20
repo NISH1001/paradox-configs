@@ -28,7 +28,9 @@
     "frontend-design@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": false,
-    "clangd-lsp@claude-plugins-official": false
+    "clangd-lsp@claude-plugins-official": false,
+    "pydantic-ai@claude-plugins-official": true,
+    "pydantic-ai-harness@pydantic-skills": true
   },
   "extraKnownMarketplaces": {
     "pydantic-skills": {
